@@ -22,7 +22,6 @@ body{
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
-
 .container{max-width:420px;margin:auto;min-height:100vh}
 
 /* HERO */
@@ -31,7 +30,6 @@ body{
   width:100%;
   height:70vh;
   object-fit:cover;
-  filter:contrast(1.05) saturate(1.1);
 }
 .hero::after{
   content:"";
@@ -45,35 +43,18 @@ body{
   transform:translateY(-50%);
   width:100%;
   text-align:center;
-  animation:floatText 6s ease-in-out infinite;
-}
-@keyframes floatText{
-  0%,100%{transform:translateY(-50%)}
-  50%{transform:translateY(-54%)}
 }
 .hero-text h1{
   font-family:'Playfair Display',serif;
   font-size:36px;
   margin:0;
   color:#ffd7a8;
-  text-shadow:
-    0 0 15px rgba(255,180,90,.6),
-    0 0 35px rgba(255,150,60,.4);
+  text-shadow:0 0 25px rgba(255,180,90,.6);
 }
 .hero-text p{
   margin:6px 0 0;
   font-size:14px;
   opacity:.95;
-}
-
-/* FILM GRAIN */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
-  mix-blend-mode:overlay;
-  pointer-events:none;
 }
 
 /* SECTION */
@@ -112,10 +93,6 @@ body{
   object-fit:cover;
   border-radius:16px;
   box-shadow:0 12px 28px rgba(0,0,0,.6);
-  transition:.4s;
-}
-.gallery img:hover{
-  transform:translateY(-6px) scale(1.04);
 }
 
 /* MUSIC BTN */
@@ -128,7 +105,6 @@ body{
   width:46px;
   height:46px;
   background:#ffb86c;
-  box-shadow:0 0 20px rgba(255,180,90,.6);
 }
 
 /* OPENING */
@@ -136,106 +112,4 @@ body{
   position:fixed;
   inset:0;
   background:radial-gradient(circle at top,#2b1d14,#0e0a07);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  z-index:9999;
-  text-align:center;
-  transition:opacity 1.2s ease, transform 1.2s ease, filter 1.2s ease;
-}
-#opening.fade-out{
-  opacity:0;
-  transform:scale(1.08);
-  filter:blur(10px);
-}
-#opening h2{
-  color:#ffd7a8;
-  text-shadow:0 0 30px rgba(255,180,90,.7);
-}
-#opening button{
-  margin-top:20px;
-  padding:14px 26px;
-  border:none;
-  border-radius:14px;
-  background:#ffb86c;
-}
-
-footer{padding:20px;font-size:12px;opacity:.7}
-</style>
-</head>
-
-<body>
-
-<div id="opening">
-  <h2>Kaka Music Studio</h2>
-  <p>Neon Senja Session</p>
-  <button onclick="openInvite()">Masuk Acara</button>
-</div>
-
-<audio id="bgm" loop>
-  <source src="Cafe Music Kaka jz.mp3" type="audio/mpeg">
-</audio>
-<button class="music-btn" onclick="toggleMusic()">🎵</button>
-
-<div class="container">
-
-  <div class="hero">
-    <img src="cover1.jpg">
-    <div class="hero-text">
-      <p>Live • Coffee • Game</p>
-      <h1>Kaka Music Studio</h1>
-      <p>Acoustic Night Session</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="card">
-      📅 Sabtu, 20 Juli 2026<br>
-      🕔 17.00 WIB – Selesai
-    </div>
-
-    <div class="card">
-      <h3>📲 RSVP WhatsApp</h3>
-      <a class="btn"
-         href="https://wa.me/6281234567890?text=Gua%20dateng%20ke%20acara%20Kaka%20Music%20Studio">
-         Konfirmasi Kehadiran
-      </a>
-    </div>
-  </div>
-
-  <div class="section">
-    <h3>📸 Galeri</h3>
-    <div class="gallery">
-      <img src="galeri1.jpg">
-      <img src="galeri2.jpg">
-      <img src="galeri3.jpg">
-      <img src="galeri4.jpg">
-    </div>
-  </div>
-
-  <footer>
-    Terima kasih sudah mampir.<br>
-    Musik hidup di malam hari.
-  </footer>
-
-</div>
-
-<script>
-const bgm=document.getElementById('bgm');
-let play=false;
-
-function openInvite(){
-  const open=document.getElementById('opening');
-  open.classList.add('fade-out');
-  bgm.play(); play=true;
-  setTimeout(()=>{open.style.display='none'},1200);
-}
-function toggleMusic(){
-  play ? bgm.pause() : bgm.play();
-  play=!play;
-}
-</script>
-
-</body>
-</html>
+  display:fle
