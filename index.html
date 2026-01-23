@@ -32,11 +32,12 @@ body{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+  background:linear-gradient(to bottom,rgba(0,0,0,.4),rgba(0,0,0,.85));
 }
 .hero-text{
   position:absolute;
-  bottom:30px;
+  top:50%;
+  transform:translateY(-50%);
   width:100%;
   text-align:center;
 }
@@ -50,7 +51,7 @@ body{
 .hero-text p{
   margin:6px 0 0;
   font-size:14px;
-  opacity:.9;
+  opacity:.95;
 }
 
 /* SECTION */
@@ -89,10 +90,6 @@ body{
   object-fit:cover;
   border-radius:16px;
   box-shadow:0 10px 25px rgba(0,0,0,.6);
-  transition:.4s;
-}
-.gallery img:hover{
-  transform:scale(1.06);
 }
 
 /* MUSIC BTN */
@@ -175,7 +172,8 @@ footer{padding:20px;font-size:12px;opacity:.7}
   </div>
 
   <div class="section">
-    <h3>📸 Galeri Senja</h3>
+    <h3>📸 Galeri</h3>
+    <p>Suasana kopi, musik, dan game</p>
     <div class="gallery">
       <img src="galeri1.jpg">
       <img src="galeri2.jpg">
