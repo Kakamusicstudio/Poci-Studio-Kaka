@@ -112,4 +112,109 @@ body{
   position:fixed;
   inset:0;
   background:radial-gradient(circle at top,#2b1d14,#0e0a07);
-  display:fle
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  z-index:9999;
+  text-align:center;
+  transition:opacity 1.1s ease, transform 1.1s ease, filter 1.1s ease;
+}
+#opening.fade-out{
+  opacity:0;
+  transform:scale(1.08);
+  filter:blur(10px);
+}
+#opening h2{
+  color:#ffd7a8;
+  text-shadow:0 0 30px rgba(255,180,90,.7);
+}
+#opening button{
+  margin-top:20px;
+  padding:14px 26px;
+  border:none;
+  border-radius:14px;
+  background:#ffb86c;
+}
+
+footer{padding:20px;font-size:12px;opacity:.7}
+</style>
+</head>
+
+<body>
+
+<div id="opening">
+  <h2>Kaka Music Studio</h2>
+  <p>Neon Senja Session</p>
+  <button onclick="openInvite()">Masuk Acara</button>
+</div>
+
+<audio id="bgm" loop>
+  <source src="Cafe Music Kaka jz.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="cover1.jpg">
+    <div class="hero-text">
+      <p>Live • Coffee • Game</p>
+      <h1>Kaka Music Studio</h1>
+      <p>Acoustic Night Session</p>
+    </div>
+  </div>
+
+  <!-- GALERI -->
+  <div class="section">
+    <h3>📸 Galeri</h3>
+    <p>Suasana kopi, musik, dan game</p>
+    <div class="gallery">
+      <img src="coer1.jpg">
+      <img src="cover2.jpg">
+      <img src="galeri3.jpg">
+      <img src="galeri4.jpg">
+    </div>
+  </div>
+
+  <!-- TANGGAL + RSVP (DIBAWAH) -->
+  <div class="section">
+    <div class="card">
+      📅 Sabtu, 20 Juli 2026<br>
+      🕔 17.00 WIB – Selesai
+    </div>
+
+    <div class="card">
+      <h3>📲 RSVP WhatsApp</h3>
+      <a class="btn"
+         href="https://wa.me/6281234567890?text=Gua%20dateng%20ke%20acara%20Kaka%20Music%20Studio">
+         Konfirmasi Kehadiran
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    Terima kasih sudah mampir.<br>
+    Musik hidup di malam hari.
+  </footer>
+
+</div>
+
+<script>
+const bgm=document.getElementById('bgm');
+let play=false;
+function openInvite(){
+  const open=document.getElementById('opening');
+  open.classList.add('fade-out');
+  bgm.play(); play=true;
+  setTimeout(()=>{open.style.display='none'},1100);
+}
+function toggleMusic(){
+  play ? bgm.pause() : bgm.play();
+  play=!play;
+}
+</script>
+
+</body>
+</html>
