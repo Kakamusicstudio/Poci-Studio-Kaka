@@ -88,3 +88,115 @@ body::before{
   box-shadow:0 0 15px #0ff,0 0 30px #ff0;
   transition:0.3s;
 }
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 30px #ff0,0 0 50px #0ff,0 0 70px #ff0f;
+}
+.btn{
+  display:block; margin-top:14px; padding:14px; border-radius:14px;
+  background:#ff0;color:#0a0a0f;font-weight:700;text-decoration:none;
+  box-shadow:0 0 20px #ff0,0 0 40px #0ff;
+  transition:.3s; animation:btnGlow 2s infinite alternate;
+}
+@keyframes btnGlow{
+  0%{box-shadow:0 0 20px #ff0,0 0 40px #0ff;}
+  100%{box-shadow:0 0 35px #0ff,0 0 60px #ff0;}
+}
+
+/* GALERI */
+.gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:18px;}
+.gallery img{
+  width:100%; height:150px; object-fit:cover; border-radius:16px;
+  box-shadow:0 0 10px #0ff,0 0 20px #ff0;
+  transition:.3s; animation:galleryPulse 3s infinite alternate;
+}
+.gallery img:hover{
+  transform:scale(1.06); box-shadow:0 0 35px #0ff,0 0 60px #ff0;
+}
+@keyframes galleryPulse{
+  0%{box-shadow:0 0 10px #0ff,0 0 20px #ff0;}
+  100%{box-shadow:0 0 25px #ff0,0 0 50px #0ff;}
+}
+
+/* MUSIC BTN */
+.music-btn{
+  position:fixed; top:16px; right:16px;
+  width:46px;height:46px;border:none;border-radius:50%;
+  background:#0ff; box-shadow:0 0 20px #0ff,0 0 40px #ff0;
+  animation:musicBtn 2s infinite alternate;
+}
+@keyframes musicBtn{
+  0%{box-shadow:0 0 20px #0ff,0 0 40px #ff0;}
+  100%{box-shadow:0 0 35px #ff0,0 0 60px #0ff;}
+}
+
+/* FOOTER */
+footer{padding:20px;font-size:12px;opacity:.7;text-align:center;}
+</style>
+</head>
+<body>
+
+<div id="opening">
+  <h2>Kaka Music Studio</h2>
+  <p>Cyberpunk LED 2077</p>
+  <button onclick="openInvite()">Masuk Acara</button>
+</div>
+
+<audio id="bgm" loop>
+  <source src="Cafe Music Kaka jz.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="cover1.jpg">
+    <div class="hero-text">
+      <p>Live • Coffee • Game</p>
+      <h1>Kaka Music Studio</h1>
+      <p>Acoustic Night Session</p>
+    </div>
+  </div>
+
+  <!-- GALERI -->
+  <div class="section">
+    <h3>📸 Galeri</h3>
+    <div class="gallery">
+      <img src="galeri1.jpg">
+      <img src="galeri2.jpg">
+      <img src="galeri3.jpg">
+      <img src="galeri4.jpg">
+    </div>
+  </div>
+
+  <!-- INFO -->
+  <div class="section">
+    <div class="card">
+      📅 Sabtu, 20 Juli 2026<br>🕔 17.00 WIB – Selesai
+    </div>
+    <div class="card">
+      <h3>RSVP</h3>
+      <a class="btn" href="https://wa.me/6281234567890?text=Gua%20dateng%20ke%20Kaka%20Music%20Studio">Konfirmasi Kehadiran</a>
+    </div>
+  </div>
+
+  <footer>
+    Terima kasih sudah mampir.<br>Musik tetap hidup.
+  </footer>
+
+</div>
+
+<script>
+const bgm=document.getElementById('bgm');
+let play=false;
+function openInvite(){
+  const o=document.getElementById('opening');
+  o.classList.add('fade-out'); bgm.play(); play=true;
+  setTimeout(()=>o.style.display='none',1200);
+}
+function toggleMusic(){ play?bgm.pause():bgm.play(); play=!play; }
+</script>
+
+</body>
+</html>
