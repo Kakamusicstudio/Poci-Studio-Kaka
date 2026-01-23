@@ -1,1 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poci Music Studio – Indie Senja</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  background:#1a1410;
+  color:#f5f1eb;
+}
+.container{max-width:420px;margin:auto;min-height:100vh}
+.hero{position:relative}
+.hero img{width:100%;height:70vh;object-fit:cover}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,#1a1410,transparent);
+}
+.hero-text{
+  position:absolute;
+  bottom:24px;
+  width:100%;
+  text-align:center;
+}
+.hero-text h1{
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+  margin:0;
+}
+.hero-text p{
+  margin:6px 0 0;
+  font-size:14px;
+  opacity:.9;
+}
+.section{padding:28px 20px;text-align:center}
+.card{
+  background:#241c17;
+  border-radius:18px;
+  padding:20px;
+  margin-top:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.btn{
+  display:block;
+  margin-top:14px;
+  padding:14px;
+  border-radius:14px;
+  background:#c7a17a;
+  color:#1a1410;
+  font-weight:600;
+  text-decoration:none;
+}
+footer{padding:20px;font-size:12px;opacity:.7}
+.music-btn{
+  position:fixed;
+  top:16px;
+  right:16px;
+  border:none;
+  border-radius:50%;
+  width:46px;
+  height:46px;
+  background:#c7a17a;
+}
+#opening{
+  position:fixed;
+  inset:0;
+  background:#1a1410;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  z-index:9999;
+  text-align:center;
+}
+#opening button{
+  margin-top:20px;
+  padding:14px 26px;
+  border:none;
+  border-radius:14px;
+  background:#c7a17a;
+}
+</style>
+</head>
+
+<body>
+
+<div id="opening">
+  <h2>Poci Music Studio</h2>
+  <p>Indie Senja • Kopi Sore</p>
+  <button onclick="openInvite()">Buka Undangan</button>
+</div>
+
+<audio id="bgm" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+<div class="container">
+  <div class="hero">
+    <img src="cover.jpg">
+    <div class="hero-text">
+      <p>LIVE SESSION</p>
+      <h1>Poci Music Studio</h1>
+      <p>ngopi • musik • cerita</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p>Musik pelan, kopi hangat, sore yang nggak perlu buru-buru.</p>
+
+    <div class="card">
+      📅 Sabtu, 20 Juli 2026<br>
+      🕔 17.00 WIB – Selesai
+    </div>
+
+    <div class="card">
+      <h3>📲 RSVP via WhatsApp</h3>
+      <a class="btn"
+         href="https://wa.me/6281234567890?text=Gua%20dateng%20ke%20acara%20Poci%20Music%20Studio">
+         Konfirmasi via WA
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    Terima kasih sudah mampir.<br>
+    Musik nggak kemana-mana.
+  </footer>
+</div>
+
+<script>
+const bgm=document.getElementById('bgm');
+let play=false;
+function openInvite(){
+  document.getElementById('opening').style.display='none';
+  bgm.play(); play=true;
+}
+function toggleMusic(){
+  play ? bgm.pause() : bgm.play();
+  play=!play;
+}
+</script>
+
+</body>
+</html>
