@@ -81,11 +81,13 @@ footer{padding:20px;font-size:12px;opacity:.8;text-align:center;}
 let bgm=document.getElementById('bgm');
 let audioCtx, analyser, source, dataArray;
 
-// mainkan musik di desktop, dan siap diaktifkan di HP saat tap pertama
+// mainkan musik desktop & siapkan HP
 if(bgm){
   bgm.volume=0.6;
   bgm.play().catch(()=>{});
 }
+
+// HP: tap pertama halaman -> musik jalan
 document.body.addEventListener('click', ()=>{
     if(bgm.paused){
         bgm.play().catch(()=>{});
