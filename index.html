@@ -81,10 +81,16 @@ footer{padding:20px;font-size:12px;opacity:.8;text-align:center;}
 let bgm=document.getElementById('bgm');
 let audioCtx, analyser, source, dataArray;
 
+// mainkan musik di desktop, dan siap diaktifkan di HP saat tap pertama
 if(bgm){
   bgm.volume=0.6;
   bgm.play().catch(()=>{});
 }
+document.body.addEventListener('click', ()=>{
+    if(bgm.paused){
+        bgm.play().catch(()=>{});
+    }
+}, {once:true});
 
 const heroText=document.querySelector('.hero-text');
 const cards=document.querySelectorAll('.card');
