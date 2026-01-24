@@ -10,7 +10,7 @@
 body{font-family:'Montserrat',sans-serif;background:#05050a;color:#fff;overflow-x:hidden;min-height:100vh;position:relative;}
 #bgflash{position:fixed; inset:0; z-index:-5; pointer-events:none; background:#05050a;}
 body::before{content:"";position:fixed;inset:0;z-index:-4;background:linear-gradient(45deg,#ff00ff,#00ffff,#ff0,#f0f);background-size:400% 400%;animation:bgMove 15s linear infinite;opacity:0.2;}
-@keyframes bgMove{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%;}}
+@keyframes bgMove{0%{background-position:0% 0}50%{background-position:100% 100}100%{background-position:0% 0;}}
 body::after{content:"";position:fixed; inset:0; z-index:-3;background:repeating-linear-gradient(rgba(255,255,255,0.08) 0 1px,transparent 1px 3px);pointer-events:none;}
 #lightning{position:fixed; inset:0; z-index:-2; pointer-events:none; background:rgba(255,255,255,0); animation:lightning 1.5s infinite;}
 @keyframes lightning{0%,90%,100%{background:rgba(255,255,255,0);}91%{background:rgba(255,255,255,0.4);}93%{background:rgba(255,255,255,0.6);}95%{background:rgba(255,255,255,0.9);}}
@@ -21,18 +21,19 @@ body::after{content:"";position:fixed; inset:0; z-index:-3;background:repeating-
 
 #opening{position:fixed; inset:0; background:#05050a; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; z-index:9999;}
 #opening.fade-out{opacity:0; transform:scale(1.1); filter:blur(15px);}
-#opening h2{font-family:'Press Start 2P',sans-serif; font-size:20px; color:#0ff; text-shadow:0 0 15px #0ff,0 0 25px #ff0,0 0 40px #ff0f; animation:glitch 1s infinite;}
-#opening p{margin-top:8px;font-size:12px;color:#ff0;text-shadow:0 0 8px #ff0,0 0 15px #ff0a;}
+#opening h2{font-family:'Press Start 2P',sans-serif; font-size:24px; color:#0ff; text-shadow:0 0 15px #0ff,0 0 25px #ff0,0 0 40px #ff0f; animation:glitch 1s infinite;}
+#opening p{margin-top:8px;font-size:14px;color:#ff0;text-shadow:0 0 8px #ff0,0 0 15px #ff0a;}
 #opening button{margin-top:20px;padding:16px 32px; border:none;border-radius:16px; background:#ff00ff;color:#05050a;font-weight:700; box-shadow:0 0 35px #ff00ff,0 0 70px #ff0; cursor:pointer; animation:btnGlow 1s infinite alternate;}
+
 @keyframes glitch{0%,100%{text-shadow:0 0 15px #0ff,0 0 25px #ff0;}25%{text-shadow:-2px 0 15px #f0f,2px 0 15px #0ff;}50%{text-shadow:2px 0 15px #ff0,-2px 0 15px #0ff;}75%{text-shadow:0 2px 15px #ff0,0 -2px 15px #f0f;}}
 @keyframes btnGlow{0%{box-shadow:0 0 35px #ff0,0 0 70px #0ff;}100%{box-shadow:0 0 65px #0ff,0 0 130px #ff0;}}
 
 /* HERO */
-.hero{position:relative;height:50vh;overflow:hidden;}
-.hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.5);}
+.hero{position:relative;height:50vh;overflow:hidden;border-radius:18px;margin:16px;}
+.hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.5);border-radius:18px;}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);}
 .hero-text{position:absolute; top:50%; transform:translateY(-50%); width:100%; text-align:center; animation:glitch 1s infinite;}
-.hero-text h1{font-family:'Press Start 2P',sans-serif; font-size:24px;color:#0ff; text-shadow:0 0 25px #0ff,0 0 50px #0ff,0 0 70px #f0f,0 0 100px #ff0;}
+.hero-text h1{font-family:'Press Start 2P',sans-serif; font-size:28px;color:#0ff; text-shadow:0 0 25px #0ff,0 0 50px #0ff,0 0 70px #f0f,0 0 100px #ff0;}
 .hero-text p{font-size:14px;margin-top:4px;color:#ff0;text-shadow:0 0 12px #ff0,0 0 25px #ff0a;}
 
 /* SECTION */
@@ -61,7 +62,7 @@ footer{padding:20px;font-size:12px;opacity:.9;text-align:center;}
 
 <div id="opening">
   <h2>Kaka Music Studio</h2>
-  <p>Tap tombol untuk mulai neon party 🎵</p>
+  <p>Tap tombol untuk mulai Neon Party 🎵</p>
   <button onclick="openInvite()">Masuk Acara & Musik</button>
 </div>
 
@@ -72,7 +73,7 @@ footer{padding:20px;font-size:12px;opacity:.9;text-align:center;}
 
 <div class="container">
   <div class="hero">
-    <img src="cover smpl.png">
+    <img src="cover smpl.png" alt="Cover">
     <div class="hero-text">
       <p>Live • Coffee • Game</p>
       <h1>Kaka Music Studio</h1>
@@ -83,10 +84,10 @@ footer{padding:20px;font-size:12px;opacity:.9;text-align:center;}
   <div class="section">
     <h3>📸 Galeri</h3>
     <div class="gallery">
-      <img src="cover1.jpg">
-      <img src="cover2.png">
-      <img src="galeri3.jpg">
-      <img src="galeri4.jpg">
+      <img src="cover1.jpg" alt="">
+      <img src="cover2.png" alt="">
+      <img src="galeri3.jpg" alt="">
+      <img src="galeri4.jpg" alt="">
     </div>
   </div>
 
@@ -106,34 +107,42 @@ footer{padding:20px;font-size:12px;opacity:.9;text-align:center;}
 </div>
 
 <script>
-const bgm=document.getElementById('bgm');
+let bgm = document.getElementById('bgm');
 let play=false;
+let audioCtx, analyser, source, dataArray;
 
 function openInvite(){
   const o=document.getElementById('opening');
-  o.classList.add('fade-out'); 
+  o.classList.add('fade-out');
+
+  if(!audioCtx){
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioCtx.createAnalyser();
+    source = audioCtx.createMediaElementSource(bgm);
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
+    analyser.fftSize = 512;
+    dataArray = new Uint8Array(analyser.frequencyBinCount);
+  }
+
   if(!play){ bgm.play().catch(()=>{}); play=true; }
   setTimeout(()=>o.style.display='none',1200);
 }
-function toggleMusic(){ if(play){ bgm.pause(); play=false; } else{ bgm.play().catch(()=>{}); play=true; } }
 
-// AUDIO-REACTIVE ULTRA NEON PARTY
-const heroText=document.querySelector('.hero-text');
-const cards=document.querySelectorAll('.card');
-const galleryImgs=document.querySelectorAll('.gallery img');
-const bgflash=document.getElementById('bgflash');
+function toggleMusic(){
+  if(play){ bgm.pause(); play=false; } 
+  else{ bgm.play().catch(()=>{}); play=true; }
+}
 
-const audioCtx=new (window.AudioContext||window.webkitAudioContext)();
-const analyser=audioCtx.createAnalyser();
-const source=audioCtx.createMediaElementSource(bgm);
-source.connect(analyser);
-analyser.connect(audioCtx.destination);
-analyser.fftSize=512;
-const dataArray=new Uint8Array(analyser.frequencyBinCount);
+const heroText = document.querySelector('.hero-text');
+const cards = document.querySelectorAll('.card');
+const galleryImgs = document.querySelectorAll('.gallery img');
+const bgflashElem = document.getElementById('bgflash');
 
 function animateUltra(){
+  if(!analyser) return;
   analyser.getByteFrequencyData(dataArray);
-  const avg=dataArray.reduce((a,b)=>a+b,0)/dataArray.length;
+  const avg = dataArray.reduce((a,b)=>a+b,0)/dataArray.length;
   const glow=Math.min(150,avg/1);
   const r=Math.floor(Math.random()*255);
   const g=Math.floor(Math.random()*255);
@@ -152,9 +161,8 @@ function animateUltra(){
     img.style.transform=`scale(${scale}) rotate(${rotate}deg)`;
   });
   const alpha=Math.min(0.6,avg/250);
-  bgflash.style.background=`rgba(${r},${g},${b},${alpha})`;
+  bgflashElem.style.background=`rgba(${r},${g},${b},${alpha})`;
 
-  // Neon confetti
   if(avg>150){
     for(let i=0;i<5;i++){
       const conf=document.createElement('div');
