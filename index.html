@@ -87,47 +87,34 @@ body{
   box-shadow:0 0 25px #0ff,0 0 60px #ff0
 }
 
-.btn-wa{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:#25D366;
-  color:#fff;
-  padding:14px 22px;
-  border-radius:40px;
-  text-decoration:none;
-  font-weight:600;
-  box-shadow:0 0 25px #25D366;
-  z-index:99
+.buttons{
+  margin-top:18px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:center;
 }
 
-.btn-dana{
-  position:fixed;
-  right:20px;
-  bottom:80px;
-  background:#1E90FF;
-  color:#fff;
-  padding:14px 22px;
+.buttons a{
+  display:block;
+  width:80%;
+  max-width:300px;
+  text-align:center;
+  padding:14px 0;
   border-radius:40px;
-  text-decoration:none;
   font-weight:600;
-  box-shadow:0 0 25px #1E90FF;
-  z-index:99
+  text-decoration:none;
+  color:#fff;
+  box-shadow:0 0 25px #0ff;
+  transition:.2s;
 }
 
-.btn-maps{
-  position:fixed;
-  right:20px;
-  bottom:140px;
-  background:#FF4500;
-  color:#fff;
-  padding:14px 22px;
-  border-radius:40px;
-  text-decoration:none;
-  font-weight:600;
-  box-shadow:0 0 25px #FF4500;
-  z-index:99
-}
+.buttons a.wa{background:#25D366; box-shadow:0 0 25px #25D366;}
+.buttons a.dana{background:#1E90FF; box-shadow:0 0 25px #1E90FF;}
+.buttons a.maps{background:#FF4500; box-shadow:0 0 25px #FF4500;}
+.buttons a.hadir{background:#FF69B4; box-shadow:0 0 25px #FF69B4;}
+
+.buttons a:hover{transform:scale(1.05)}
 
 footer{
   text-align:center;
@@ -189,20 +176,12 @@ footer{
   </div>
 </div>
 
-<div class="section">
-  <div class="card">
-    📅 Sabtu, 7 Februari 2026<br>
-    🕔 17.00 WIB – Selesai
-  </div>
-  <div class="card">
-    RESPEK
-  </div>
+<div class="section buttons">
+  <a class="wa" href="https://wa.me/6289655606009">Konfirmasi WA</a>
+  <a class="dana" href="https://link-dana-anda.com">Bayar / DANA</a>
+  <a class="maps" href="https://maps.google.com/?q=-6.123456,106.654321">Lihat Lokasi</a>
+  <a class="hadir" href="https://wa.me/6289655606009?text=Saya%20Hadir">Saya Hadir</a>
 </div>
-
-<!-- Tombol langsung klik -->
-<a class="btn-wa" href="https://wa.me/6289655606009">Konfirmasi</a>
-<a class="btn-dana" href="https://link-dana-anda.com">Bayar / DANA</a>
-<a class="btn-maps" href="https://maps.google.com/?q=-6.123456,106.654321">Lihat Lokasi</a>
 
 <footer>Poci-Music-Game-Kaka-Studio</footer>
 
