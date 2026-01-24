@@ -30,7 +30,7 @@ body{font-family:'Montserrat',sans-serif;background:#05050a;color:#fff;overflow-
 .card:hover{transform:translateY(-6px) scale(1.03);}
 
 .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px;}
-.gallery img{width:100%; height:150px; object-fit:cover; border-radius:16px; box-shadow:0 0 60px #0ff,0 0 120px #ff0,0 0 180px #ff0f; transition:.05s;}
+.gallery img, .gallery video{width:100%; height:150px; object-fit:cover; border-radius:16px; box-shadow:0 0 60px #0ff,0 0 120px #ff0,0 0 180px #ff0f; transition:.05s;}
 
 footer{padding:20px;font-size:12px;opacity:.9;text-align:center;}
 </style>
@@ -58,19 +58,34 @@ footer{padding:20px;font-size:12px;opacity:.9;text-align:center;}
     </div>
   </div>
 
+  <!-- GALLERY DENGAN 1 VIDEO + 3 GAMBAR -->
   <div class="section">
     <h3></h3>
     <div class="gallery">
-      <img src="cover1.jpg" alt="">
+      <!-- Video menggantikan cover1 -->
+      <video controls autoplay loop muted>
+        <source src="VIDEOKAKA1.MP4" type="video/mp4">
+        Browser kamu tidak mendukung video ini.
+      </video>
+
       <img src="cover2.jpg" alt="">
       <img src="cover3.png" alt="">
       <img src="cover4.jpg" alt="">
     </div>
   </div>
 
+  <!-- VIDEO UNDANGAN DI BAWAH GALLERY -->
+  <div class="section">
+    <h3>Video Undangan</h3>
+    <video width="100%" controls autoplay loop muted>
+      <source src="https://raw.githubusercontent.com/username/repo/main/undangan.mp4" type="video/mp4">
+      Browser kamu tidak mendukung video ini.
+    </video>
+  </div>
+
   <div class="section">
     <div class="card">
-      📅 Sabtu, 7 februari 2026<br>🕔 17.00 WIB – Selesai
+      📅 Sabtu, 7 Februari 2026<br>🕔 17.00 WIB – Selesai
     </div>
     <div class="card">
       <h3>Respek</h3>
@@ -101,12 +116,7 @@ function openInvite(){
   }
 
   bgm.muted=true;
-  bgm.play().then(()=>{
-    bgm.pause();
-    bgm.muted=false;
-    bgm.play();
-    play=true;
-  }).catch(()=>{});
+  bgm.play().then(()=>{ bgm.pause(); bgm.muted=false; bgm.play(); play=true; }).catch(()=>{});
 
   setTimeout(()=>o.style.display='none',800);
   animateUltra360();
@@ -114,7 +124,7 @@ function openInvite(){
 
 const heroText=document.querySelector('.hero-text');
 const cards=document.querySelectorAll('.card');
-const galleryImgs=document.querySelectorAll('.gallery img');
+const galleryElems=document.querySelectorAll('.gallery img, .gallery video');
 const bgflashElem=document.getElementById('bgflash');
 const scanbar=document.getElementById('scanbar');
 const ledscan=document.getElementById('ledscan');
@@ -131,14 +141,12 @@ function animateUltra360(){
   const color=`rgb(${r},${g},${b})`;
 
   heroText.style.textShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*4}px ${color},0 0 ${glow*6}px ${color}`;
-  cards.forEach(c=>{
-    c.style.boxShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*4}px ${color},0 0 ${glow*6}px ${color}`;
-  });
-  galleryImgs.forEach(img=>{
-    img.style.boxShadow=`0 0 ${glow/1.2}px ${color},0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*3}px ${color}`;
+  cards.forEach(c=>{ c.style.boxShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*4}px ${color},0 0 ${glow*6}px ${color}`; });
+  galleryElems.forEach(el=>{
+    el.style.boxShadow=`0 0 ${glow/1.2}px ${color},0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*3}px ${color}`;
     const scale=1+Math.random()*avg/3000;
     const rotate=(Math.random()-0.5)*avg/15;
-    img.style.transform=`scale(${scale}) rotate(${rotate}deg)`;
+    el.style.transform=`scale(${scale}) rotate(${rotate}deg)`;
   });
 
   const alpha=Math.min(0.8,avg/180);
