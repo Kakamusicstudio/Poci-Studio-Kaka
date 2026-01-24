@@ -31,6 +31,9 @@ footer{padding:20px;font-size:12px;opacity:.8;text-align:center;}
 
 .btn-wa{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:14px 20px;border-radius:50px;font-weight:600;text-decoration:none;box-shadow:0 0 20px #25D366;transition:.2s;z-index:999;}
 .btn-wa:hover{transform:scale(1.05);box-shadow:0 0 40px #25D366;}
+
+#playMusicBtn{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+background:#0ff;color:#000;padding:20px 40px;font-size:18px;border-radius:12px;cursor:pointer;z-index:9999;}
 </style>
 </head>
 <body>
@@ -39,9 +42,11 @@ footer{padding:20px;font-size:12px;opacity:.8;text-align:center;}
 <div id="ledscan"></div>
 <div id="scanbar"></div>
 
-<audio id="bgm" loop autoplay>
+<audio id="bgm" loop>
   <source src="Cafe Music Kaka jz.mp3" type="audio/mpeg">
 </audio>
+
+<div id="playMusicBtn">Mainkan Musik</div>
 
 <div class="container">
   <div class="hero">
@@ -79,20 +84,18 @@ footer{padding:20px;font-size:12px;opacity:.8;text-align:center;}
 
 <script>
 let bgm=document.getElementById('bgm');
+let btn=document.getElementById('playMusicBtn');
 let audioCtx, analyser, source, dataArray;
 
-// mainkan musik desktop & siapkan HP
-if(bgm){
-  bgm.volume=0.6;
-  bgm.play().catch(()=>{});
-}
+// desktop: play langsung
+bgm.volume=0.6;
+bgm.play().catch(()=>{});
 
-// HP: tap pertama halaman -> musik jalan
-document.body.addEventListener('click', ()=>{
-    if(bgm.paused){
-        bgm.play().catch(()=>{});
-    }
-}, {once:true});
+// HP: tap tombol -> musik jalan
+btn.addEventListener('click', ()=>{
+    bgm.play().catch(()=>{});
+    btn.style.display='none';
+});
 
 const heroText=document.querySelector('.hero-text');
 const cards=document.querySelectorAll('.card');
