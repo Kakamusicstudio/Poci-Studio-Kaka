@@ -3,39 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaka Music Studio – Neon Party Lite</title>
+<title>Kaka Music Studio – Neon Party Ultra</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Montserrat',sans-serif;background:#05050a;color:#fff;overflow-x:hidden;min-height:100vh;position:relative;}
 #bgflash{position:fixed; inset:0; z-index:-5; pointer-events:none; background:#05050a;}
-body::before{content:"";position:fixed;inset:0;z-index:-4;background:linear-gradient(45deg,#ff00ff,#00ffff,#ff0,#f0f);background-size:400% 400%;animation:bgMove 20s linear infinite;opacity:0.15;}
+body::before{content:"";position:fixed;inset:0;z-index:-4;background:linear-gradient(45deg,#ff00ff,#00ffff,#ff0,#f0f);background-size:400% 400%;animation:bgMove 15s linear infinite;opacity:0.2;}
 @keyframes bgMove{0%{background-position:0% 0}50%{background-position:100% 100}100%{background-position:0% 0;}}
-#opening{position:fixed; inset:0; background:#05050a; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; z-index:9999;}
-#opening.fade-out{opacity:0; transform:scale(1.05); filter:blur(10px);}
-#opening h2{font-family:'Press Start 2P',sans-serif; font-size:22px; color:#0ff; text-shadow:0 0 15px #0ff;}
-#opening button{margin-top:20px;padding:14px 28px; border:none;border-radius:12px; background:#ff00ff;color:#05050a;font-weight:700; cursor:pointer;}
+body::after{content:"";position:fixed; inset:0; z-index:-3;background:repeating-linear-gradient(rgba(255,255,255,0.08) 0 1px,transparent 1px 3px);pointer-events:none;}
+#lightning{position:fixed; inset:0; z-index:-2; pointer-events:none; background:rgba(255,255,255,0); animation:lightning 1.5s infinite;}
+@keyframes lightning{0%,90%,100%{background:rgba(255,255,255,0);}91%{background:rgba(255,255,255,0.4);}93%{background:rgba(255,255,255,0.6);}95%{background:rgba(255,255,255,0.9);}}
+#scanbar{position:fixed; top:0; left:0; width:100%; height:100%; z-index:-2; background:linear-gradient(90deg,transparent 48%, rgba(0,255,255,0.15) 50%, transparent 52%); background-size:200% 100%; animation:scan 2s linear infinite; pointer-events:none;}
+@keyframes scan{0%{background-position:0 0;}100%{background-position:200% 0;}}
+#ledscan{position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; background:repeating-linear-gradient(to right, transparent 0 2px, rgba(0,255,255,0.08) 2px 4px); animation:ledmove 2.5s linear infinite; pointer-events:none;}
+@keyframes ledmove{0%{background-position-x:0;}100%{background-position-x:100%;}}
 
-.hero{position:relative;height:45vh;overflow:hidden;border-radius:16px;margin:16px;}
-.hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.55);border-radius:16px;}
+#opening{position:fixed; inset:0; background:#05050a; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; z-index:9999;}
+#opening.fade-out{opacity:0; transform:scale(1.1); filter:blur(15px);}
+#opening h2{font-family:'Press Start 2P',sans-serif; font-size:24px; color:#0ff; text-shadow:0 0 15px #0ff,0 0 25px #ff0,0 0 40px #ff0f; animation:glitch 1s infinite;}
+#opening p{margin-top:8px;font-size:14px;color:#ff0;text-shadow:0 0 8px #ff0,0 0 15px #ff0a;}
+#opening button{margin-top:20px;padding:16px 32px; border:none;border-radius:16px; background:#ff00ff;color:#05050a;font-weight:700; box-shadow:0 0 35px #ff00ff,0 0 70px #ff0; cursor:pointer; animation:btnGlow 1s infinite alternate;}
+@keyframes glitch{0%,100%{text-shadow:0 0 15px #0ff,0 0 25px #ff0;}25%{text-shadow:-2px 0 15px #f0f,2px 0 15px #0ff;}50%{text-shadow:2px 0 15px #ff0,-2px 0 15px #0ff;}75%{text-shadow:0 2px 15px #ff0,0 -2px 15px #f0f;}}
+@keyframes btnGlow{0%{box-shadow:0 0 35px #ff0,0 0 70px #0ff;}100%{box-shadow:0 0 65px #0ff,0 0 130px #ff0;}}
+
+/* HERO */
+.hero{position:relative;height:50vh;overflow:hidden;border-radius:18px;margin:16px;}
+.hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.5);border-radius:18px;}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);}
 .hero-text{position:absolute; top:50%; transform:translateY(-50%); width:100%; text-align:center;}
-.hero-text h1{font-family:'Press Start 2P',sans-serif; font-size:26px;color:#0ff; text-shadow:0 0 15px #0ff;}
+.hero-text h1{font-family:'Press Start 2P',sans-serif; font-size:28px;color:#0ff; text-shadow:0 0 25px #0ff;}
+.hero-text p{display:none;} /* sembunyikan teks kecil / musik */
 
-.section{padding:20px 14px;text-align:center;}
-.card{background:rgba(10,6,8,.9); border-radius:16px; padding:16px; margin-top:16px; box-shadow:0 0 20px #0ff,0 0 40px #ff0; transition:0.1s;}
-.card:hover{transform:translateY(-4px) scale(1.02); box-shadow:0 0 50px #ff0,0 0 80px #0ff;}
-.btn{display:block; margin-top:12px; padding:14px; border-radius:14px; background:#ff0;color:#05050a;font-weight:700;text-decoration:none; box-shadow:0 0 25px #ff0,0 0 50px #0ff; transition:.1s;}
+/* SECTION */
+.section{padding:24px 16px;text-align:center;}
+.card{background:rgba(10,6,8,.95); border-radius:18px; padding:20px; margin-top:18px; box-shadow:0 0 35px #0ff,0 0 70px #ff0,0 0 120px #ff0f; transition:0.1s;}
+.card:hover{transform:translateY(-6px) scale(1.03); box-shadow:0 0 80px #ff0,0 0 140px #0ff,0 0 180px #ff0f;}
+.btn{display:block; margin-top:14px; padding:16px; border-radius:16px; background:#ff0;color:#05050a;font-weight:700;text-decoration:none; box-shadow:0 0 35px #ff0,0 0 70px #0ff; transition:.1s; animation:btnGlow 1s infinite alternate;}
 
-footer{padding:18px;font-size:12px;opacity:.85;text-align:center;}
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px;}
+.gallery img{width:100%; height:150px; object-fit:cover; border-radius:16px; box-shadow:0 0 40px #0ff,0 0 80px #ff0,0 0 120px #ff0f; transition:.05s;}
+
+/* FOOTER */
+footer{padding:20px;font-size:12px;opacity:.9;text-align:center;}
 </style>
 </head>
 <body>
 
 <div id="bgflash"></div>
+<div id="lightning"></div>
+<div id="scanbar"></div>
+<div id="ledscan"></div>
 
 <div id="opening">
   <h2>Kaka Music Studio</h2>
+  <p>Tap tombol untuk mulai Neon Party 🎵</p>
   <button onclick="openInvite()">Masuk Acara & Musik</button>
 </div>
 
@@ -53,12 +76,27 @@ footer{padding:18px;font-size:12px;opacity:.85;text-align:center;}
 
   <div class="section">
     <h3>📸 Galeri</h3>
-    <div class="card">Cover 1</div>
-    <div class="card">Cover 2</div>
-    <div class="card">Cover 3</div>
+    <div class="gallery">
+      <img src="cover1.jpg" alt="">
+      <img src="cover2.png" alt="">
+      <img src="galeri3.jpg" alt="">
+      <img src="galeri4.jpg" alt="">
+    </div>
   </div>
 
-  <footer>Musik tetap hidup 🎵</footer>
+  <div class="section">
+    <div class="card">
+      📅 Sabtu, 20 Juli 2026<br>🕔 17.00 WIB – Selesai
+    </div>
+    <div class="card">
+      <h3>RSVP</h3>
+      <a class="btn" href="https://wa.me/6281234567890?text=Gua%20dateng%20ke%20Kaka%20Music%20Studio">Konfirmasi Kehadiran</a>
+    </div>
+  </div>
+
+  <footer>
+    Terima kasih sudah mampir.<br>Musik tetap hidup.
+  </footer>
 </div>
 
 <script>
@@ -76,7 +114,7 @@ function openInvite(){
     source = audioCtx.createMediaElementSource(bgm);
     source.connect(analyser);
     analyser.connect(audioCtx.destination);
-    analyser.fftSize = 256; // lebih ringan
+    analyser.fftSize = 512;
     dataArray = new Uint8Array(analyser.frequencyBinCount);
   }
 
@@ -89,34 +127,60 @@ function openInvite(){
     play = true;
   }).catch(()=>{});
 
-  setTimeout(()=>o.style.display='none',800);
-
-  animateUltra();
+  setTimeout(()=>o.style.display='none',1200);
 }
 
 const heroText=document.querySelector('.hero-text');
 const cards=document.querySelectorAll('.card');
+const galleryImgs=document.querySelectorAll('.gallery img');
 const bgflashElem=document.getElementById('bgflash');
 
 function animateUltra(){
   if(!analyser) return;
   analyser.getByteFrequencyData(dataArray);
   const avg = dataArray.reduce((a,b)=>a+b,0)/dataArray.length;
-  const glow=Math.min(100,avg/1);
+  const glow=Math.min(150,avg/1);
   const r=Math.floor(Math.random()*255);
   const g=Math.floor(Math.random()*255);
   const b=Math.floor(Math.random()*255);
   const color=`rgb(${r},${g},${b})`;
 
-  heroText.style.textShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color}`;
+  heroText.style.textShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*3}px ${color},0 0 ${glow*5}px ${color}`;
   cards.forEach(c=>{
-    c.style.boxShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color}`;
+    c.style.boxShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*3}px ${color},0 0 ${glow*5}px ${color}`;
+    c.style.transform=`scale(${1+avg/1000}) rotate(${(avg/30)%20}deg)`;
   });
-  const alpha=Math.min(0.5,avg/300);
+  galleryImgs.forEach(img=>{
+    img.style.boxShadow=`0 0 ${glow/1.5}px ${color},0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*3}px ${color}`;
+    const scale=1+Math.random()*avg/3000;
+    const rotate=(Math.random()-0.5)*avg/30;
+    img.style.transform=`scale(${scale}) rotate(${rotate}deg)`;
+  });
+  const alpha=Math.min(0.6,avg/250);
   bgflashElem.style.background=`rgba(${r},${g},${b},${alpha})`;
+
+  if(avg>150){
+    for(let i=0;i<5;i++){
+      const conf=document.createElement('div');
+      conf.style.position='fixed';
+      conf.style.width='8px';
+      conf.style.height='8px';
+      conf.style.borderRadius='50%';
+      conf.style.left=Math.random()*100+'%';
+      conf.style.top='-10px';
+      conf.style.background=`hsl(${Math.random()*360},80%,60%)`;
+      conf.style.zIndex=9999;
+      conf.style.opacity=0.9;
+      conf.style.transition='top 1s linear';
+      document.body.appendChild(conf);
+      setTimeout(()=>{conf.style.top='110%';},10);
+      setTimeout(()=>{conf.remove();},1100);
+    }
+  }
 
   requestAnimationFrame(animateUltra);
 }
+animateUltra();
 </script>
 </body>
 </html>
