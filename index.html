@@ -3,145 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Undangan Music Kaka</title>
+<title>Kaka Music Studio</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Poppins',sans-serif;background:#0a0a0f;color:#fff;overflow-x:hidden;min-height:100vh;position:relative;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Poppins,sans-serif;
+  background:#07070c;
+  color:#fff;
+  min-height:100vh;
+  overflow-x:hidden;
+}
 
-#bgflash,#ledscan,#scanbar{position:fixed; inset:0; width:100%; height:100%; pointer-events:none;}
-#bgflash{z-index:-5; background:#0a0a0f;}
-#scanbar{z-index:-3; background:linear-gradient(90deg,transparent 45%, rgba(0,255,255,0.2) 50%, transparent 55%); background-size:200% 100%;}
-#ledscan{z-index:-4; background:repeating-linear-gradient(to right, transparent 0 2px, rgba(0,255,255,0.05) 2px 4px);}
+#bgflash,#scanbar,#ledscan{
+  position:fixed;inset:0;pointer-events:none
+}
+#bgflash{z-index:-3;background:#07070c}
+#scanbar{z-index:-2;background:linear-gradient(90deg,transparent 45%,rgba(0,255,255,.25) 50%,transparent 55%)}
+#ledscan{z-index:-1;background:repeating-linear-gradient(45deg,transparent 0 3px,rgba(0,255,255,.08) 3px 6px)}
 
-.hero{position:relative;height:50vh;overflow:hidden;border-radius:18px;margin:16px;}
-.hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.5);border-radius:18px;}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);}
-.hero-text{position:absolute;bottom:16px;width:100%;text-align:center;transform:none;}
-.hero-text h1{font-family:'Orbitron', sans-serif;font-size:32px;color:#0ff;text-shadow:0 0 20px #0ff,0 0 40px #ff0,0 0 60px #ff0f;}
+.hero{
+  margin:16px;
+  height:50vh;
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+}
+.hero img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.55)
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.7),transparent)
+}
+.hero-text{
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center
+}
+.hero-text h1{
+  font-family:Orbitron,sans-serif;
+  font-size:32px;
+  color:#0ff;
+  text-shadow:0 0 25px #0ff,0 0 60px #ff0
+}
 
-.section{padding:24px 16px;text-align:center;}
-.card{font-family:'Poppins',sans-serif;background:rgba(20,15,25,.95); border-radius:18px; padding:20px; margin-top:18px; box-shadow:0 0 30px #0ff,0 0 60px #ff0; transition:0.2s;}
-.card:hover{transform:translateY(-4px) scale(1.02);}
+.section{
+  padding:24px 16px;
+  text-align:center
+}
 
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:18px;}
-.gallery img, .gallery video{width:100%; height:150px; object-fit:cover; border-radius:16px; box-shadow:0 0 30px #0ff,0 0 60px #ff0; transition:.1s;}
+.card{
+  background:rgba(20,15,30,.95);
+  margin-top:18px;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 0 30px #0ff,0 0 70px #ff0;
+  transition:.2s
+}
+.card:hover{transform:scale(1.03)}
 
-footer{padding:20px;font-size:12px;opacity:.8;text-align:center;}
+.gallery{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px
+}
+.gallery img,.gallery video{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:16px;
+  box-shadow:0 0 25px #0ff,0 0 60px #ff0
+}
 
-.btn-wa{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:14px 20px;border-radius:50px;font-weight:600;text-decoration:none;box-shadow:0 0 20px #25D366;transition:.2s;z-index:999;}
-.btn-wa:hover{transform:scale(1.05);box-shadow:0 0 40px #25D366;}
+.btn-wa{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#25D366;
+  color:#fff;
+  padding:14px 22px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 0 25px #25D366;
+  z-index:99
+}
 
-#playMusicBtn{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
-background:#0ff;color:#000;padding:20px 40px;font-size:18px;border-radius:12px;cursor:pointer;z-index:9999;}
+footer{
+  text-align:center;
+  padding:20px;
+  font-size:12px;
+  opacity:.8
+}
+
+#play{
+  position:fixed;
+  inset:0;
+  background:#07070c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999
+}
+#play button{
+  padding:18px 36px;
+  font-size:18px;
+  border:none;
+  border-radius:14px;
+  background:#0ff;
+  color:#000;
+  font-weight:700
+}
 </style>
 </head>
+
 <body>
 
 <div id="bgflash"></div>
-<div id="ledscan"></div>
 <div id="scanbar"></div>
+<div id="ledscan"></div>
 
 <audio id="bgm" loop>
   <source src="Cafe Music Kaka jz.mp3" type="audio/mpeg">
 </audio>
 
-<div id="playMusicBtn">Mainkan Musik</div>
-
-<div class="container">
-  <div class="hero">
-    <img src="cover1.jpg" alt="Cover">
-    <div class="hero-text">
-      <h1>Kaka Music Studio</h1>
-    </div>
-  </div>
-
-  <div class="section">
-    <h3>Gallery</h3>
-    <div class="gallery">
-      <video controls autoplay loop muted>
-        <source src="cover2 vid.mp4" type="video/mp4">
-        Browser kamu tidak mendukung video ini.
-      </video>
-      <img src="cover3.jpg" alt="">
-      <img src="cover4.jpg" alt="">
-      <img src="cover5.jpg" alt="">
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="card">
-      📅 Sabtu, 7 Februari 2026<br>🕔 17.00 WIB – Selesai
-    </div>
-    <div class="card">
-      <h3>Respek</h3>
-      <a class="btn-wa" href="https://wa.me/+6289655606009?text=Ini%20Nomer%20Kaka%20Blz%20Hadir%20Ga Hadir">Konfirmasi</a>
-    </div>
-  </div>
-
-  <footer>Poci-Music-Game-Kaka-Studio</footer>
+<div id="play">
+  <button onclick="start()">PLAY MUSIC</button>
 </div>
 
+<div class="hero">
+  <img src="cover1.jpg">
+  <div class="hero-text">
+    <h1>Kaka Music Studio</h1>
+  </div>
+</div>
+
+<div class="section">
+  <div class="gallery">
+    <video autoplay muted loop controls>
+      <source src="cover2 vid.mp4" type="video/mp4">
+    </video>
+    <img src="cover3.jpg">
+    <img src="cover4.jpg">
+    <img src="cover5.jpg">
+  </div>
+</div>
+
+<div class="section">
+  <div class="card">
+    📅 Sabtu, 7 Februari 2026<br>
+    🕔 17.00 WIB – Selesai
+  </div>
+  <div class="card">
+    RESPEK
+  </div>
+</div>
+
+<a class="btn-wa" href="https://wa.me/6289655606009">Konfirmasi</a>
+
+<footer>Poci-Music-Game-Kaka-Studio</footer>
+
 <script>
-let bgm=document.getElementById('bgm');
-let btn=document.getElementById('playMusicBtn');
-let audioCtx, analyser, source, dataArray;
+const bgm=document.getElementById('bgm');
+const play=document.getElementById('play');
 
-// desktop: play langsung
-bgm.volume=0.6;
-bgm.play().catch(()=>{});
-
-// HP: tap tombol -> musik jalan
-btn.addEventListener('click', ()=>{
-    bgm.play().catch(()=>{});
-    btn.style.display='none';
-});
-
-const heroText=document.querySelector('.hero-text');
-const cards=document.querySelectorAll('.card');
-const galleryElems=document.querySelectorAll('.gallery img, .gallery video');
-const bgflashElem=document.getElementById('bgflash');
-const scanbar=document.getElementById('scanbar');
-const ledscan=document.getElementById('ledscan');
-
-function animateUltra360(){
-  if(!audioCtx){
-    audioCtx=new (window.AudioContext||window.webkitAudioContext)();
-    analyser=audioCtx.createAnalyser();
-    source=audioCtx.createMediaElementSource(bgm);
-    source.connect(analyser);
-    analyser.connect(audioCtx.destination);
-    analyser.fftSize=256;
-    dataArray=new Uint8Array(analyser.frequencyBinCount);
-  }
-
-  analyser.getByteFrequencyData(dataArray);
-  const avg=dataArray.reduce((a,b)=>a+b,0)/dataArray.length;
-  const glow=Math.min(200,avg/1.2);
-
-  const r=Math.floor(Math.random()*255);
-  const g=Math.floor(Math.random()*255);
-  const b=Math.floor(Math.random()*255);
-  const color=`rgb(${r},${g},${b})`;
-
-  heroText.style.textShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*4}px ${color}`;
-  cards.forEach(c=>{ c.style.boxShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color}`; });
-  galleryElems.forEach(el=>{
-    el.style.boxShadow=`0 0 ${glow/1.2}px ${color},0 0 ${glow}px ${color}`;
-    const scale=1+Math.random()*avg/3500;
-    const rotate=(Math.random()-0.5)*avg/15;
-    el.style.transform=`scale(${scale}) rotate(${rotate}deg)`;
-  });
-
-  const alpha=Math.min(0.7,avg/180);
-  bgflashElem.style.background=`rgba(${r},${g},${b},${alpha})`;
-  scanbar.style.background=`linear-gradient(90deg,transparent 45%, rgba(${r},${g},${b},0.3) 50%, transparent 55%)`;
-  ledscan.style.background=`repeating-linear-gradient(45deg, transparent 0 2px, rgba(${r},${g},${b},0.1) 2px 4px)`;
-
-  requestAnimationFrame(animateUltra360);
+function start(){
+  bgm.volume=.6;
+  bgm.play();
+  play.style.display='none';
+  audioReact();
 }
 
-animateUltra360();
+function audioReact(){
+  const ctx=new (window.AudioContext||window.webkitAudioContext)();
+  const src=ctx.createMediaElementSource(bgm);
+  const an=ctx.createAnalyser();
+  src.connect(an);
+  an.connect(ctx.destination);
+  an.fftSize=256;
+  const data=new Uint8Array(an.frequencyBinCount);
+
+  function anim(){
+    an.getByteFrequencyData(data);
+    const avg=data.reduce((a,b)=>a+b)/data.length;
+    const r=Math.random()*255|0;
+    const g=Math.random()*255|0;
+    const b=Math.random()*255|0;
+
+    document.getElementById('bgflash').style.background=
+      `rgba(${r},${g},${b},${Math.min(.7,avg/180)})`;
+
+    requestAnimationFrame(anim);
+  }
+  anim();
+}
 </script>
+
 </body>
 </html>
