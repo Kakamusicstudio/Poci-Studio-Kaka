@@ -3,42 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaka Music Studio – Cyberpunk Ultra Glitch</title>
+<title>Kaka Music Studio – Neon Party Ultra</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Montserrat',sans-serif;background:#0a0a0f;color:#fff;overflow-x:hidden;min-height:100vh;position:relative;transition: background 0.05s linear;}
-#bgflash{position:fixed; inset:0; z-index:-5; pointer-events:none; background:#0a0a0f; transition:0.05s;}
-body::before{content:"";position:fixed;inset:0;z-index:-4;background:linear-gradient(45deg,#ff00ff,#00ffff,#ff0,#f0f);background-size:400% 400%;animation:bgMove 20s linear infinite;opacity:0.15;}
+body{font-family:'Montserrat',sans-serif;background:#05050a;color:#fff;overflow-x:hidden;min-height:100vh;position:relative;}
+#bgflash{position:fixed; inset:0; z-index:-5; pointer-events:none; background:#05050a;}
+body::before{content:"";position:fixed;inset:0;z-index:-4;background:linear-gradient(45deg,#ff00ff,#00ffff,#ff0,#f0f);background-size:400% 400%;animation:bgMove 15s linear infinite;opacity:0.2;}
 @keyframes bgMove{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%;}}
-body::after{content:"";position:fixed; inset:0; z-index:-3;background:repeating-linear-gradient(rgba(255,255,255,0.05) 0 1px,transparent 1px 3px);pointer-events:none;}
-#lightning{position:fixed; inset:0; z-index:-2; pointer-events:none; background:rgba(255,255,255,0); animation:lightning 2s infinite;}
-@keyframes lightning{0%,96%,100%{background:rgba(255,255,255,0);}97%{background:rgba(255,255,255,0.3);}98%{background:rgba(255,255,255,0);}99%{background:rgba(255,255,255,0.5);}}
-#scanbar{position:fixed; top:0; left:0; width:100%; height:100%; z-index:-2; background:linear-gradient(90deg,transparent 48%, rgba(0,255,255,0.05) 50%, transparent 52%); background-size:200% 100%; animation:scan 3s linear infinite; pointer-events:none;}
+body::after{content:"";position:fixed; inset:0; z-index:-3;background:repeating-linear-gradient(rgba(255,255,255,0.08) 0 1px,transparent 1px 3px);pointer-events:none;}
+#lightning{position:fixed; inset:0; z-index:-2; pointer-events:none; background:rgba(255,255,255,0); animation:lightning 1.5s infinite;}
+@keyframes lightning{0%,90%,100%{background:rgba(255,255,255,0);}91%{background:rgba(255,255,255,0.4);}93%{background:rgba(255,255,255,0.6);}95%{background:rgba(255,255,255,0.9);}}
+#scanbar{position:fixed; top:0; left:0; width:100%; height:100%; z-index:-2; background:linear-gradient(90deg,transparent 48%, rgba(0,255,255,0.15) 50%, transparent 52%); background-size:200% 100%; animation:scan 2s linear infinite; pointer-events:none;}
 @keyframes scan{0%{background-position:0 0;}100%{background-position:200% 0;}}
-#ledscan{position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; background:repeating-linear-gradient(to right, transparent 0 2px, rgba(0,255,255,0.03) 2px 4px); animation:ledmove 5s linear infinite; pointer-events:none;}
+#ledscan{position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; background:repeating-linear-gradient(to right, transparent 0 2px, rgba(0,255,255,0.08) 2px 4px); animation:ledmove 2.5s linear infinite; pointer-events:none;}
 @keyframes ledmove{0%{background-position-x:0;}100%{background-position-x:100%;}}
-#opening{position:fixed; inset:0; background:#0a0a0f; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; z-index:9999; transition:all 1s ease;}
-#opening.fade-out{opacity:0; transform:scale(1.05); filter:blur(15px);}
-#opening h2{font-family:'Press Start 2P',sans-serif; font-size:18px; color:#0ff; text-shadow:0 0 8px #0ff,0 0 15px #ff0,0 0 30px #ff0f; animation:glitch 1.5s infinite;}
-#opening p{margin-top:8px;font-size:10px;color:#ff0;text-shadow:0 0 4px #ff0,0 0 10px #ff0a;}
-#opening button{margin-top:20px;padding:12px 24px; border:none;border-radius:12px; background:#ff00ff;color:#0a0a0f;font-weight:700; box-shadow:0 0 15px #ff00ff,0 0 30px #ff0; cursor:pointer; animation:btnGlow 2s infinite alternate;}
-@keyframes glitch{0%,100%{text-shadow:0 0 8px #0ff,0 0 15px #ff0;}25%{text-shadow:-1px 0 8px #f0f,1px 0 8px #0ff;}50%{text-shadow:1px 0 8px #ff0,-1px 0 8px #0ff;}75%{text-shadow:0 1px 8px #ff0,0 -1px 8px #f0f;}}
-@keyframes btnGlow{0%{box-shadow:0 0 15px #ff0,0 0 30px #0ff;}100%{box-shadow:0 0 25px #0ff,0 0 50px #ff0;}}
+
+#opening{position:fixed; inset:0; background:#05050a; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; z-index:9999;}
+#opening.fade-out{opacity:0; transform:scale(1.1); filter:blur(15px);}
+#opening h2{font-family:'Press Start 2P',sans-serif; font-size:20px; color:#0ff; text-shadow:0 0 15px #0ff,0 0 25px #ff0,0 0 40px #ff0f; animation:glitch 1s infinite;}
+#opening p{margin-top:8px;font-size:12px;color:#ff0;text-shadow:0 0 8px #ff0,0 0 15px #ff0a;}
+#opening button{margin-top:20px;padding:16px 32px; border:none;border-radius:16px; background:#ff00ff;color:#05050a;font-weight:700; box-shadow:0 0 35px #ff00ff,0 0 70px #ff0; cursor:pointer; animation:btnGlow 1s infinite alternate;}
+@keyframes glitch{0%,100%{text-shadow:0 0 15px #0ff,0 0 25px #ff0;}25%{text-shadow:-2px 0 15px #f0f,2px 0 15px #0ff;}50%{text-shadow:2px 0 15px #ff0,-2px 0 15px #0ff;}75%{text-shadow:0 2px 15px #ff0,0 -2px 15px #f0f;}}
+@keyframes btnGlow{0%{box-shadow:0 0 35px #ff0,0 0 70px #0ff;}100%{box-shadow:0 0 65px #0ff,0 0 130px #ff0;}}
+
+/* HERO */
 .hero{position:relative;height:50vh;overflow:hidden;}
 .hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.5);}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent);}
-.hero-text{position:absolute; top:50%; transform:translateY(-50%); width:100%; text-align:center; animation:glitch 2s infinite;}
-.hero-text h1{font-family:'Press Start 2P',sans-serif; font-size:20px;color:#0ff; text-shadow:0 0 8px #0ff,0 0 15px #0ff,0 0 20px #f0f,0 0 25px #ff0;}
-.hero-text p{font-size:10px;margin-top:4px;color:#ff0;text-shadow:0 0 4px #ff0,0 0 10px #ff0a;}
-.section{padding:20px 16px;text-align:center;}
-.card{background:rgba(10,6,8,.8); border-radius:14px; padding:16px; margin-top:14px; box-shadow:0 0 15px #0ff,0 0 30px #ff0; transition:0.1s;}
-.card:hover{transform:translateY(-3px); box-shadow:0 0 30px #ff0,0 0 50px #0ff,0 0 60px #ff0f;}
-.btn{display:block; margin-top:12px; padding:12px; border-radius:12px; background:#ff0;color:#0a0a0f;font-weight:700;text-decoration:none; box-shadow:0 0 20px #ff0,0 0 40px #0ff; transition:.1s; animation:btnGlow 2s infinite alternate;}
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px;}
-.gallery img{width:100%; height:120px; object-fit:cover; border-radius:12px; box-shadow:0 0 10px #0ff,0 0 20px #ff0; transition:.05s;}
-.music-btn{position:fixed; top:12px; right:12px; width:40px;height:40px;border:none;border-radius:50%; background:#0ff; box-shadow:0 0 20px #0ff,0 0 40px #ff0;}
-footer{padding:16px;font-size:10px;opacity:.7;text-align:center;}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);}
+.hero-text{position:absolute; top:50%; transform:translateY(-50%); width:100%; text-align:center; animation:glitch 1s infinite;}
+.hero-text h1{font-family:'Press Start 2P',sans-serif; font-size:24px;color:#0ff; text-shadow:0 0 25px #0ff,0 0 50px #0ff,0 0 70px #f0f,0 0 100px #ff0;}
+.hero-text p{font-size:14px;margin-top:4px;color:#ff0;text-shadow:0 0 12px #ff0,0 0 25px #ff0a;}
+
+/* SECTION */
+.section{padding:24px 16px;text-align:center;}
+.card{background:rgba(10,6,8,.95); border-radius:18px; padding:20px; margin-top:18px; box-shadow:0 0 35px #0ff,0 0 70px #ff0,0 0 120px #ff0f; transition:0.1s;}
+.card:hover{transform:translateY(-6px) scale(1.03); box-shadow:0 0 80px #ff0,0 0 140px #0ff,0 0 180px #ff0f;}
+.btn{display:block; margin-top:14px; padding:16px; border-radius:16px; background:#ff0;color:#05050a;font-weight:700;text-decoration:none; box-shadow:0 0 35px #ff0,0 0 70px #0ff; transition:.1s; animation:btnGlow 1s infinite alternate;}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px;}
+.gallery img{width:100%; height:150px; object-fit:cover; border-radius:16px; box-shadow:0 0 40px #0ff,0 0 80px #ff0,0 0 120px #ff0f; transition:.05s;}
+
+/* MUSIC BUTTON */
+.music-btn{position:fixed; top:14px; right:14px; width:50px;height:50px;border:none;border-radius:50%; background:#0ff; box-shadow:0 0 40px #0ff,0 0 80px #ff0; cursor:pointer;}
+
+/* FOOTER */
+footer{padding:20px;font-size:12px;opacity:.9;text-align:center;}
 </style>
 </head>
 <body>
@@ -50,28 +61,28 @@ footer{padding:16px;font-size:10px;opacity:.7;text-align:center;}
 
 <div id="opening">
   <h2>Kaka Music Studio</h2>
-  <p>Tap tombol untuk memutar musik 🎵</p>
+  <p>Tap tombol untuk mulai neon party 🎵</p>
   <button onclick="openInvite()">Masuk Acara & Musik</button>
 </div>
 
-<audio id="bgm" loop crossorigin="anonymous">
+<audio id="bgm" loop>
   <source src="Cafe Music Kaka jz.mp3" type="audio/mpeg">
 </audio>
 <button class="music-btn" onclick="toggleMusic()">🎵</button>
 
 <div class="container">
   <div class="hero">
-    <img src="cover smpl.png" id="heroImg">
-    <div class="hero-text" id="heroText">
+    <img src="cover smpl.png">
+    <div class="hero-text">
       <p>Live • Coffee • Game</p>
       <h1>Kaka Music Studio</h1>
-      <p>Acoustic Night Session</p>
+      <p>Ultra Neon Session</p>
     </div>
   </div>
 
   <div class="section">
     <h3>📸 Galeri</h3>
-    <div class="gallery" id="gallery">
+    <div class="gallery">
       <img src="cover1.jpg">
       <img src="cover2.png">
       <img src="galeri3.jpg">
@@ -80,10 +91,10 @@ footer{padding:16px;font-size:10px;opacity:.7;text-align:center;}
   </div>
 
   <div class="section">
-    <div class="card" id="card1">
+    <div class="card">
       📅 Sabtu, 20 Juli 2026<br>🕔 17.00 WIB – Selesai
     </div>
-    <div class="card" id="card2">
+    <div class="card">
       <h3>RSVP</h3>
       <a class="btn" href="https://wa.me/6281234567890?text=Gua%20dateng%20ke%20Kaka%20Music%20Studio">Konfirmasi Kehadiran</a>
     </div>
@@ -95,66 +106,77 @@ footer{padding:16px;font-size:10px;opacity:.7;text-align:center;}
 </div>
 
 <script>
-const bgm = document.getElementById('bgm');
+const bgm=document.getElementById('bgm');
 let play=false;
 
 function openInvite(){
   const o=document.getElementById('opening');
   o.classList.add('fade-out'); 
-  // play audio only after user tap (for mobile)
-  if(!play){
-    bgm.play().catch(e=>console.log('User interaction required',e));
-    play=true;
-  }
+  if(!play){ bgm.play().catch(()=>{}); play=true; }
   setTimeout(()=>o.style.display='none',1200);
 }
+function toggleMusic(){ if(play){ bgm.pause(); play=false; } else{ bgm.play().catch(()=>{}); play=true; } }
 
-function toggleMusic(){ 
-  if(play){ bgm.pause(); play=false; } 
-  else{ bgm.play().catch(e=>console.log('User interaction required')); play=true; }
-}
+// AUDIO-REACTIVE ULTRA NEON PARTY
+const heroText=document.querySelector('.hero-text');
+const cards=document.querySelectorAll('.card');
+const galleryImgs=document.querySelectorAll('.gallery img');
+const bgflash=document.getElementById('bgflash');
 
-// ULTRA AUDIO REACTIVE
-const heroText = document.getElementById('heroText');
-const cards = [document.getElementById('card1'), document.getElementById('card2')];
-const galleryImgs = document.querySelectorAll('#gallery img');
-const bgflash = document.getElementById('bgflash');
-
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-const analyser = audioCtx.createAnalyser();
-const source = audioCtx.createMediaElementSource(bgm);
+const audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+const analyser=audioCtx.createAnalyser();
+const source=audioCtx.createMediaElementSource(bgm);
 source.connect(analyser);
 analyser.connect(audioCtx.destination);
-analyser.fftSize = 512;
-const dataArray = new Uint8Array(analyser.frequencyBinCount);
+analyser.fftSize=512;
+const dataArray=new Uint8Array(analyser.frequencyBinCount);
 
 function animateUltra(){
   analyser.getByteFrequencyData(dataArray);
-  const avg = dataArray.reduce((a,b)=>a+b,0)/dataArray.length;
-  const glow = Math.min(80, avg/1.5);
-  const r = Math.floor(Math.random()*255);
-  const g = Math.floor(Math.random()*255);
-  const b = Math.floor(Math.random()*255);
-  const color = `rgb(${r},${g},${b})`;
+  const avg=dataArray.reduce((a,b)=>a+b,0)/dataArray.length;
+  const glow=Math.min(150,avg/1);
+  const r=Math.floor(Math.random()*255);
+  const g=Math.floor(Math.random()*255);
+  const b=Math.floor(Math.random()*255);
+  const color=`rgb(${r},${g},${b})`;
 
-  heroText.style.textShadow = `0 0 ${glow}px ${color},0 0 ${glow*1.5}px ${color},0 0 ${glow*2}px ${color}`;
+  heroText.style.textShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*3}px ${color},0 0 ${glow*5}px ${color}`;
   cards.forEach(c=>{
-    c.style.boxShadow = `0 0 ${glow}px ${color},0 0 ${glow*1.5}px ${color}`;
-    c.style.transform = `scale(${1+avg/1500}) rotate(${(avg/50)%10}deg)`;
+    c.style.boxShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*3}px ${color},0 0 ${glow*5}px ${color}`;
+    c.style.transform=`scale(${1+avg/1000}) rotate(${(avg/30)%20}deg)`;
   });
   galleryImgs.forEach(img=>{
-    img.style.boxShadow = `0 0 ${glow/1.5}px ${color},0 0 ${glow}px ${color}`;
-    const scale = 1+Math.random()*avg/5000;
-    const rotate = (Math.random()-0.5)*avg/50;
-    img.style.transform = `scale(${scale}) rotate(${rotate}deg)`;
+    img.style.boxShadow=`0 0 ${glow/1.5}px ${color},0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*3}px ${color}`;
+    const scale=1+Math.random()*avg/3000;
+    const rotate=(Math.random()-0.5)*avg/30;
+    img.style.transform=`scale(${scale}) rotate(${rotate}deg)`;
   });
-  const alpha = Math.min(0.35, avg/400);
-  bgflash.style.background = `rgba(${r},${g},${b},${alpha})`;
+  const alpha=Math.min(0.6,avg/250);
+  bgflash.style.background=`rgba(${r},${g},${b},${alpha})`;
+
+  // Neon confetti
+  if(avg>150){
+    for(let i=0;i<5;i++){
+      const conf=document.createElement('div');
+      conf.style.position='fixed';
+      conf.style.width='8px';
+      conf.style.height='8px';
+      conf.style.borderRadius='50%';
+      conf.style.left=Math.random()*100+'%';
+      conf.style.top='-10px';
+      conf.style.background=`hsl(${Math.random()*360},80%,60%)`;
+      conf.style.zIndex=9999;
+      conf.style.opacity=0.9;
+      conf.style.transition='top 1s linear';
+      document.body.appendChild(conf);
+      setTimeout(()=>{conf.style.top='110%';},10);
+      setTimeout(()=>{conf.remove();},1100);
+    }
+  }
 
   requestAnimationFrame(animateUltra);
 }
 animateUltra();
 </script>
-
 </body>
 </html>
