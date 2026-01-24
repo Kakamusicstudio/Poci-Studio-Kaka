@@ -3,36 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaka Music Studio – Ultra Dugem Neon MAX</title>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@500&family=Audiowide&display=swap" rel="stylesheet">
+<title>Undangan Music Kaka</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Montserrat',sans-serif;background:#05050a;color:#fff;overflow-x:hidden;min-height:100vh;position:relative;}
+body{font-family:'Poppins',sans-serif;background:#0a0a0f;color:#fff;overflow-x:hidden;min-height:100vh;position:relative;}
 
 #bgflash,#ledscan,#scanbar{position:fixed; inset:0; width:100%; height:100%; pointer-events:none;}
-#bgflash{z-index:-5; background:#05050a;}
+#bgflash{z-index:-5; background:#0a0a0f;}
 #scanbar{z-index:-3; background:linear-gradient(90deg,transparent 45%, rgba(0,255,255,0.2) 50%, transparent 55%); background-size:200% 100%;}
-#ledscan{z-index:-4; background:repeating-linear-gradient(to right, transparent 0 2px, rgba(0,255,255,0.1) 2px 4px);}
-
-#opening{position:fixed; inset:0; background:#05050a; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; z-index:9999;}
-#opening.fade-out{opacity:0; transform:scale(1.1); filter:blur(15px);}
-#opening h2{font-family:'Press Start 2P',sans-serif; font-size:28px; color:#0ff; text-shadow:0 0 25px #0ff;}
-#opening button{margin-top:20px;padding:16px 32px;border:none;border-radius:16px;background:#ff00ff;color:#05050a;font-weight:700;cursor:pointer;}
+#ledscan{z-index:-4; background:repeating-linear-gradient(to right, transparent 0 2px, rgba(0,255,255,0.05) 2px 4px);}
 
 .hero{position:relative;height:50vh;overflow:hidden;border-radius:18px;margin:16px;}
 .hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.5);border-radius:18px;}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);}
 .hero-text{position:absolute;top:50%;transform:translateY(-50%);width:100%;text-align:center;}
-.hero-text h1{font-family:'Orbitron', sans-serif;font-size:32px;color:#0ff;text-shadow:0 0 40px #0ff,0 0 80px #ff0,0 0 120px #ff0f;}
+.hero-text h1{font-family:'Orbitron', sans-serif;font-size:32px;color:#0ff;text-shadow:0 0 20px #0ff,0 0 40px #ff0,0 0 60px #ff0f;}
 
 .section{padding:24px 16px;text-align:center;}
-.card{font-family:'Audiowide', cursive;background:rgba(10,6,8,.95); border-radius:18px; padding:20px; margin-top:18px; box-shadow:0 0 50px #0ff,0 0 100px #ff0,0 0 150px #ff0f; transition:0.1s;}
-.card:hover{transform:translateY(-6px) scale(1.03);}
+.card{font-family:'Poppins',sans-serif;background:rgba(20,15,25,.95); border-radius:18px; padding:20px; margin-top:18px; box-shadow:0 0 30px #0ff,0 0 60px #ff0; transition:0.2s;}
+.card:hover{transform:translateY(-4px) scale(1.02);}
 
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px;}
-.gallery img, .gallery video{width:100%; height:150px; object-fit:cover; border-radius:16px; box-shadow:0 0 60px #0ff,0 0 120px #ff0,0 0 180px #ff0f; transition:.05s;}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:18px;}
+.gallery img, .gallery video{width:100%; height:150px; object-fit:cover; border-radius:16px; box-shadow:0 0 30px #0ff,0 0 60px #ff0; transition:.1s;}
 
-footer{padding:20px;font-size:12px;opacity:.9;text-align:center;}
+footer{padding:20px;font-size:12px;opacity:.8;text-align:center;}
+
+.btn-wa{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:14px 20px;border-radius:50px;font-weight:600;text-decoration:none;box-shadow:0 0 20px #25D366;transition:.2s;z-index:999;}
+.btn-wa:hover{transform:scale(1.05);box-shadow:0 0 40px #25D366;}
 </style>
 </head>
 <body>
@@ -41,12 +39,7 @@ footer{padding:20px;font-size:12px;opacity:.9;text-align:center;}
 <div id="ledscan"></div>
 <div id="scanbar"></div>
 
-<div id="opening">
-  <h2>Kaka Music Studio</h2>
-  <button onclick="openInvite()">ACARA</button>
-</div>
-
-<audio id="bgm" loop>
+<audio id="bgm" loop autoplay>
   <source src="Cafe Music Kaka jz.mp3" type="audio/mpeg">
 </audio>
 
@@ -54,20 +47,17 @@ footer{padding:20px;font-size:12px;opacity:.9;text-align:center;}
   <div class="hero">
     <img src="cover1.jpg" alt="Cover">
     <div class="hero-text">
-      <h1></h1>
+      <h1>Kaka Music Studio</h1>
     </div>
   </div>
 
-  <!-- GALLERY DENGAN 1 VIDEO + 3 GAMBAR -->
   <div class="section">
-    <h3></h3>
+    <h3>Gallery</h3>
     <div class="gallery">
-      <!-- Video menggantikan cover1 -->
       <video controls autoplay loop muted>
         <source src="cover2 vid.mp4" type="video/mp4">
         Browser kamu tidak mendukung video ini.
       </video>
-
       <img src="cover3.jpg" alt="">
       <img src="cover4.jpg" alt="">
       <img src="cover5.jpg" alt="">
@@ -80,7 +70,7 @@ footer{padding:20px;font-size:12px;opacity:.9;text-align:center;}
     </div>
     <div class="card">
       <h3>Respek</h3>
-      <a class="btn" href="https://wa.me/+6289655606009?text=Ini%20Nomer%20Kaka%20Blz%20Hadir%20Ga Hadir">Konfirmasi</a>
+      <a class="btn-wa" href="https://wa.me/+6289655606009?text=Ini%20Nomer%20Kaka%20Blz%20Hadir%20Ga Hadir">Konfirmasi</a>
     </div>
   </div>
 
@@ -89,28 +79,11 @@ footer{padding:20px;font-size:12px;opacity:.9;text-align:center;}
 
 <script>
 let bgm=document.getElementById('bgm');
-let play=false;
 let audioCtx, analyser, source, dataArray;
 
-function openInvite(){
-  const o=document.getElementById('opening');
-  o.classList.add('fade-out');
-
-  if(!audioCtx){
-    audioCtx=new (window.AudioContext||window.webkitAudioContext)();
-    analyser=audioCtx.createAnalyser();
-    source=audioCtx.createMediaElementSource(bgm);
-    source.connect(analyser);
-    analyser.connect(audioCtx.destination);
-    analyser.fftSize=256;
-    dataArray=new Uint8Array(analyser.frequencyBinCount);
-  }
-
-  bgm.muted=true;
-  bgm.play().then(()=>{ bgm.pause(); bgm.muted=false; bgm.play(); play=true; }).catch(()=>{});
-
-  setTimeout(()=>o.style.display='none',800);
-  animateUltra360();
+if(bgm){
+  bgm.volume=0.6;
+  bgm.play().catch(()=>{});
 }
 
 const heroText=document.querySelector('.hero-text');
@@ -121,51 +94,43 @@ const scanbar=document.getElementById('scanbar');
 const ledscan=document.getElementById('ledscan');
 
 function animateUltra360(){
-  if(!analyser) return;
+  if(!audioCtx){
+    audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    analyser=audioCtx.createAnalyser();
+    source=audioCtx.createMediaElementSource(bgm);
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
+    analyser.fftSize=256;
+    dataArray=new Uint8Array(analyser.frequencyBinCount);
+  }
+
   analyser.getByteFrequencyData(dataArray);
   const avg=dataArray.reduce((a,b)=>a+b,0)/dataArray.length;
-  const glow=Math.min(250,avg/1.1);
+  const glow=Math.min(200,avg/1.2);
 
   const r=Math.floor(Math.random()*255);
   const g=Math.floor(Math.random()*255);
   const b=Math.floor(Math.random()*255);
   const color=`rgb(${r},${g},${b})`;
 
-  heroText.style.textShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*4}px ${color},0 0 ${glow*6}px ${color}`;
-  cards.forEach(c=>{ c.style.boxShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*4}px ${color},0 0 ${glow*6}px ${color}`; });
+  heroText.style.textShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*4}px ${color}`;
+  cards.forEach(c=>{ c.style.boxShadow=`0 0 ${glow}px ${color},0 0 ${glow*2}px ${color}`; });
   galleryElems.forEach(el=>{
-    el.style.boxShadow=`0 0 ${glow/1.2}px ${color},0 0 ${glow}px ${color},0 0 ${glow*2}px ${color},0 0 ${glow*3}px ${color}`;
-    const scale=1+Math.random()*avg/3000;
+    el.style.boxShadow=`0 0 ${glow/1.2}px ${color},0 0 ${glow}px ${color}`;
+    const scale=1+Math.random()*avg/3500;
     const rotate=(Math.random()-0.5)*avg/15;
     el.style.transform=`scale(${scale}) rotate(${rotate}deg)`;
   });
 
-  const alpha=Math.min(0.8,avg/180);
+  const alpha=Math.min(0.7,avg/180);
   bgflashElem.style.background=`rgba(${r},${g},${b},${alpha})`;
-  scanbar.style.background=`linear-gradient(90deg,transparent 45%, rgba(${r},${g},${b},0.4) 50%, transparent 55%)`;
-  ledscan.style.background=`repeating-linear-gradient(45deg, transparent 0 2px, rgba(${r},${g},${b},0.2) 2px 4px)`;
-
-  if(avg>150){
-    for(let i=0;i<5;i++){
-      const conf=document.createElement('div');
-      conf.style.position='fixed';
-      conf.style.width='8px';
-      conf.style.height='8px';
-      conf.style.borderRadius='50%';
-      conf.style.left=Math.random()*100+'%';
-      conf.style.top='-10px';
-      conf.style.background=`hsl(${Math.random()*360},80%,60%)`;
-      conf.style.zIndex=9999;
-      conf.style.opacity=0.9;
-      conf.style.transition='top 1s linear';
-      document.body.appendChild(conf);
-      setTimeout(()=>{conf.style.top='110%';},10);
-      setTimeout(()=>{conf.remove();},1200);
-    }
-  }
+  scanbar.style.background=`linear-gradient(90deg,transparent 45%, rgba(${r},${g},${b},0.3) 50%, transparent 55%)`;
+  ledscan.style.background=`repeating-linear-gradient(45deg, transparent 0 2px, rgba(${r},${g},${b},0.1) 2px 4px)`;
 
   requestAnimationFrame(animateUltra360);
 }
+
+animateUltra360();
 </script>
 </body>
 </html>
