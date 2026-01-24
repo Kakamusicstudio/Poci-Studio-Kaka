@@ -8,30 +8,16 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Montserrat',sans-serif;background:#0a0a0f;color:#fff;overflow-x:hidden;min-height:100vh;position:relative;transition: background 0.05s linear;}
-
-/* FULL PAGE FLASH */
 #bgflash{position:fixed; inset:0; z-index:-5; pointer-events:none; background:#0a0a0f; transition:0.05s;}
-
-/* BACKGROUND ANIMATED */
 body::before{content:"";position:fixed;inset:0;z-index:-4;background:linear-gradient(45deg,#ff00ff,#00ffff,#ff0,#f0f);background-size:400% 400%;animation:bgMove 20s linear infinite;opacity:0.15;}
-@keyframes bgMove{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
-
-/* SCANLINES */
+@keyframes bgMove{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%;}}
 body::after{content:"";position:fixed; inset:0; z-index:-3;background:repeating-linear-gradient(rgba(255,255,255,0.05) 0 1px,transparent 1px 3px);pointer-events:none;}
-
-/* LIGHTNING */
 #lightning{position:fixed; inset:0; z-index:-2; pointer-events:none; background:rgba(255,255,255,0); animation:lightning 2s infinite;}
 @keyframes lightning{0%,96%,100%{background:rgba(255,255,255,0);}97%{background:rgba(255,255,255,0.3);}98%{background:rgba(255,255,255,0);}99%{background:rgba(255,255,255,0.5);}}
-
-/* SCAN BAR */
 #scanbar{position:fixed; top:0; left:0; width:100%; height:100%; z-index:-2; background:linear-gradient(90deg,transparent 48%, rgba(0,255,255,0.05) 50%, transparent 52%); background-size:200% 100%; animation:scan 3s linear infinite; pointer-events:none;}
 @keyframes scan{0%{background-position:0 0;}100%{background-position:200% 0;}}
-
-/* LED SCAN */
 #ledscan{position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; background:repeating-linear-gradient(to right, transparent 0 2px, rgba(0,255,255,0.03) 2px 4px); animation:ledmove 5s linear infinite; pointer-events:none;}
 @keyframes ledmove{0%{background-position-x:0;}100%{background-position-x:100%;}}
-
-/* OPENING */
 #opening{position:fixed; inset:0; background:#0a0a0f; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; z-index:9999; transition:all 1s ease;}
 #opening.fade-out{opacity:0; transform:scale(1.05); filter:blur(15px);}
 #opening h2{font-family:'Press Start 2P',sans-serif; font-size:18px; color:#0ff; text-shadow:0 0 8px #0ff,0 0 15px #ff0,0 0 30px #ff0f; animation:glitch 1.5s infinite;}
@@ -39,29 +25,19 @@ body::after{content:"";position:fixed; inset:0; z-index:-3;background:repeating-
 #opening button{margin-top:20px;padding:12px 24px; border:none;border-radius:12px; background:#ff00ff;color:#0a0a0f;font-weight:700; box-shadow:0 0 15px #ff00ff,0 0 30px #ff0; cursor:pointer; animation:btnGlow 2s infinite alternate;}
 @keyframes glitch{0%,100%{text-shadow:0 0 8px #0ff,0 0 15px #ff0;}25%{text-shadow:-1px 0 8px #f0f,1px 0 8px #0ff;}50%{text-shadow:1px 0 8px #ff0,-1px 0 8px #0ff;}75%{text-shadow:0 1px 8px #ff0,0 -1px 8px #f0f;}}
 @keyframes btnGlow{0%{box-shadow:0 0 15px #ff0,0 0 30px #0ff;}100%{box-shadow:0 0 25px #0ff,0 0 50px #ff0;}}
-
-/* HERO */
 .hero{position:relative;height:50vh;overflow:hidden;}
 .hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.5);}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent);}
 .hero-text{position:absolute; top:50%; transform:translateY(-50%); width:100%; text-align:center; animation:glitch 2s infinite;}
 .hero-text h1{font-family:'Press Start 2P',sans-serif; font-size:20px;color:#0ff; text-shadow:0 0 8px #0ff,0 0 15px #0ff,0 0 20px #f0f,0 0 25px #ff0;}
 .hero-text p{font-size:10px;margin-top:4px;color:#ff0;text-shadow:0 0 4px #ff0,0 0 10px #ff0a;}
-
-/* SECTION */
 .section{padding:20px 16px;text-align:center;}
 .card{background:rgba(10,6,8,.8); border-radius:14px; padding:16px; margin-top:14px; box-shadow:0 0 15px #0ff,0 0 30px #ff0; transition:0.1s;}
 .card:hover{transform:translateY(-3px); box-shadow:0 0 30px #ff0,0 0 50px #0ff,0 0 60px #ff0f;}
 .btn{display:block; margin-top:12px; padding:12px; border-radius:12px; background:#ff0;color:#0a0a0f;font-weight:700;text-decoration:none; box-shadow:0 0 20px #ff0,0 0 40px #0ff; transition:.1s; animation:btnGlow 2s infinite alternate;}
-
-/* GALERI */
 .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px;}
 .gallery img{width:100%; height:120px; object-fit:cover; border-radius:12px; box-shadow:0 0 10px #0ff,0 0 20px #ff0; transition:.05s;}
-
-/* MUSIC BTN */
 .music-btn{position:fixed; top:12px; right:12px; width:40px;height:40px;border:none;border-radius:50%; background:#0ff; box-shadow:0 0 20px #0ff,0 0 40px #ff0;}
-
-/* FOOTER */
 footer{padding:16px;font-size:10px;opacity:.7;text-align:center;}
 </style>
 </head>
@@ -74,8 +50,8 @@ footer{padding:16px;font-size:10px;opacity:.7;text-align:center;}
 
 <div id="opening">
   <h2>Kaka Music Studio</h2>
-  <p>Cyberpunk Ultra Glitch + Gallery Sync</p>
-  <button onclick="openInvite()">Masuk Acara</button>
+  <p>Tap tombol untuk memutar musik 🎵</p>
+  <button onclick="openInvite()">Masuk Acara & Musik</button>
 </div>
 
 <audio id="bgm" loop crossorigin="anonymous">
@@ -124,10 +100,19 @@ let play=false;
 
 function openInvite(){
   const o=document.getElementById('opening');
-  o.classList.add('fade-out'); bgm.play(); play=true;
+  o.classList.add('fade-out'); 
+  // play audio only after user tap (for mobile)
+  if(!play){
+    bgm.play().catch(e=>console.log('User interaction required',e));
+    play=true;
+  }
   setTimeout(()=>o.style.display='none',1200);
 }
-function toggleMusic(){ play?bgm.pause():bgm.play(); play=!play; }
+
+function toggleMusic(){ 
+  if(play){ bgm.pause(); play=false; } 
+  else{ bgm.play().catch(e=>console.log('User interaction required')); play=true; }
+}
 
 // ULTRA AUDIO REACTIVE
 const heroText = document.getElementById('heroText');
@@ -152,21 +137,17 @@ function animateUltra(){
   const b = Math.floor(Math.random()*255);
   const color = `rgb(${r},${g},${b})`;
 
-  // hero text
   heroText.style.textShadow = `0 0 ${glow}px ${color},0 0 ${glow*1.5}px ${color},0 0 ${glow*2}px ${color}`;
-  // cards
   cards.forEach(c=>{
     c.style.boxShadow = `0 0 ${glow}px ${color},0 0 ${glow*1.5}px ${color}`;
     c.style.transform = `scale(${1+avg/1500}) rotate(${(avg/50)%10}deg)`;
   });
-  // gallery images
   galleryImgs.forEach(img=>{
     img.style.boxShadow = `0 0 ${glow/1.5}px ${color},0 0 ${glow}px ${color}`;
     const scale = 1+Math.random()*avg/5000;
     const rotate = (Math.random()-0.5)*avg/50;
     img.style.transform = `scale(${scale}) rotate(${rotate}deg)`;
   });
-  // FULL PAGE FLASH
   const alpha = Math.min(0.35, avg/400);
   bgflash.style.background = `rgba(${r},${g},${b},${alpha})`;
 
