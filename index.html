@@ -3,220 +3,236 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaka Music Studio</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<title>Kaka Studio – Cyber Funk RAVE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:Poppins,sans-serif;
-  background:#07070c;
-  color:#fff;
-  min-height:100vh;
-  overflow-x:hidden;
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{font-family:'Poppins',sans-serif;overflow-x:hidden;background:#0a0a0f;color:#fff;}
+
+/* CYBER GRID & RGB */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background:
+    linear-gradient(0deg, rgba(0,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,.05) 1px, transparent 1px);
+  background-size:40px 40px;
+  z-index:-2;
+}
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background:linear-gradient(45deg,#ff00ff,#00ffff,#ffea00,#ff00ff);
+  background-size:600% 600%;
+  animation:neonBG 12s linear infinite;
+  opacity:.15;
+  z-index:-1;
+}
+@keyframes neonBG{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
-#bgflash,#scanbar,#ledscan{
-  position:fixed;inset:0;pointer-events:none
-}
-#bgflash{z-index:-3;background:#07070c}
-#scanbar{z-index:-2;background:linear-gradient(90deg,transparent 45%,rgba(0,255,255,.25) 50%,transparent 55%)}
-#ledscan{z-index:-1;background:repeating-linear-gradient(45deg,transparent 0 3px,rgba(0,255,255,.08) 3px 6px)}
-
-.hero{
-  margin:16px;
-  height:50vh;
-  border-radius:20px;
-  overflow:hidden;
-  position:relative;
-}
-.hero img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter:brightness(.85) contrast(1.1)
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.2),transparent)
-}
-.hero-text{
-  position:absolute;
-  bottom:20px;
-  width:100%;
-  text-align:center
-}
-.hero-text h1{
-  font-family:Orbitron,sans-serif;
-  font-size:32px;
-  color:#00ffff;
-  text-shadow:
-    0 0 15px #0ff,
-    0 0 35px #0ff,
-    0 0 60px #0ff,
-    0 0 100px #0ff
+/* SCANLINES */
+.scanline{
+  position:fixed;inset:0;
+  background:repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,.03),
+    rgba(255,255,255,.03) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  z-index:9999;
+  pointer-events:none;
 }
 
-.section{
-  padding:24px 16px;
-  text-align:center
+/* OPENING */
+#opening{
+  position:fixed;inset:0;
+  background:#0a0a0f;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  z-index:9999;text-align:center;
 }
-
-.card{
-  background:rgba(20,15,30,.95);
-  margin-top:18px;
-  padding:20px;
-  border-radius:18px;
-  box-shadow:0 0 30px #0ff,0 0 70px #ff0;
-  transition:.2s
+#opening h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:50px;
+  background:linear-gradient(90deg,#0ff,#f0f,#ff0,#0ff);
+  -webkit-background-clip:text;color:transparent;
+  text-shadow:0 0 12px #0ff,0 0 24px #f0f;
 }
-.card:hover{transform:scale(1.03)}
-
-.gallery{
-  margin-top:18px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:12px
-}
-.gallery img,.gallery video{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  border-radius:16px;
-  box-shadow:0 0 25px #0ff,0 0 60px #ff0
-}
-
-.buttons{
-  margin-top:18px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  align-items:center;
-}
-
-.buttons a{
-  display:block;
-  width:80%;
-  max-width:300px;
-  text-align:center;
-  padding:14px 0;
-  border-radius:40px;
-  font-weight:600;
-  text-decoration:none;
-  color:#fff;
-  box-shadow:0 0 25px #0ff;
-  transition:.2s;
-}
-
-.buttons a.wa{background:#25D366; box-shadow:0 0 25px #25D366;}
-.buttons a.dana{background:#1E90FF; box-shadow:0 0 25px #1E90FF;}
-.buttons a.maps{background:#FF4500; box-shadow:0 0 25px #FF4500;}
-.buttons a.hadir{background:#FF69B4; box-shadow:0 0 25px #FF69B4;}
-
-.buttons a:hover{transform:scale(1.05)}
-
-footer{
-  text-align:center;
-  padding:20px;
-  font-size:12px;
-  opacity:.8
-}
-
-#play{
-  position:fixed;
-  inset:0;
-  background:#07070c;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:9999
-}
-#play button{
-  padding:18px 36px;
-  font-size:18px;
-  border:none;
-  border-radius:14px;
-  background:#0ff;
-  color:#000;
-  font-weight:700;
+#opening button{
+  margin-top:28px;padding:18px 44px;
+  border:none;border-radius:40px;
+  background:#0ff;color:#000;
+  font-weight:700;font-size:18px;
   cursor:pointer;
+  animation:glowPulse 1.2s infinite;
+}
+
+/* CONTAINER */
+.container{max-width:420px;margin:auto;padding:20px;}
+
+/* HERO */
+.hero{text-align:center;margin-bottom:24px;}
+.hero h2{
+  font-family:'Orbitron',sans-serif;
+  font-size:48px;
+  background:linear-gradient(90deg,#ff00ff,#00ffff,#ffea00);
+  -webkit-background-clip:text;color:transparent;
+  text-shadow:0 0 6px #0ff,0 0 12px #f0f;
+  animation:glowPulse 1.5s infinite alternate;
+}
+.hero p{margin-top:6px;font-size:16px;opacity:.8;}
+
+/* GALLERY */
+.gallery{
+  position:relative;height:260px;border-radius:24px;overflow:hidden;border:4px solid #0ff;margin-top:20px;
+}
+.gallery img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity .3s ease, transform .3s ease, box-shadow .2s ease;
+}
+.gallery img.active{opacity:1;transform:scale(1.03);}
+.gallery img.glitch{
+  animation:glitch 1s infinite;
+}
+@keyframes glitch{
+  0%{clip:rect(0,9999px,0,0);}
+  10%{clip:rect(20px,9999px,25px,0);}
+  20%{clip:rect(5px,9999px,40px,0);}
+  30%{clip:rect(15px,9999px,20px,0);}
+  40%{clip:rect(10px,9999px,30px,0);}
+  50%{clip:rect(0,9999px,25px,0);}
+  60%{clip:rect(5px,9999px,35px,0);}
+  70%{clip:rect(15px,9999px,20px,0);}
+  80%{clip:rect(10px,9999px,30px,0);}
+  90%{clip:rect(0,9999px,25px,0);}
+  100%{clip:rect(0,9999px,0,0);}
+}
+
+/* BUTTONS */
+.btn-live{
+  display:block;margin-top:24px;padding:20px;border-radius:30px;
+  font-size:22px;font-weight:900;text-align:center;text-decoration:none;
+  background:linear-gradient(90deg,#ff00ff,#00ffff);
+  color:#000;
+  box-shadow:0 0 30px #0ff;
+}
+.btn-dana{
+  display:block;margin-top:18px;padding:18px;border-radius:30px;
+  font-size:18px;font-weight:700;text-align:center;text-decoration:none;
+  background:linear-gradient(90deg,#ff00ff,#ffea00);
+  color:#000;
+  box-shadow:0 0 20px #ff0;
+}
+
+/* FOOTER */
+footer{text-align:center;margin:28px 0 10px;font-size:12px;opacity:.6;}
+
+/* PULSE ANIM */
+@keyframes glowPulse{
+  0%{text-shadow:0 0 6px #0ff,0 0 12px #f0f;transform:scale(1);}
+  50%{text-shadow:0 0 12px #0ff,0 0 24px #f0f;transform:scale(1.05);}
+  100%{text-shadow:0 0 6px #0ff,0 0 12px #f0f;transform:scale(1);}
 }
 </style>
 </head>
 <body>
 
-<div id="bgflash"></div>
-<div id="scanbar"></div>
-<div id="ledscan"></div>
+<div class="scanline"></div>
 
+<!-- OPENING -->
+<div id="opening">
+  <h1>KAKA STUDIO</h1>
+  <button onclick="startLive()">MASUK LIVE</button>
+</div>
+
+<!-- AUDIO -->
 <audio id="bgm" loop>
-  <source src="lgu kpi kk.mp3" type="audio/mpeg">
+  <source src="ngopi kk (1).mp3" type="audio/mpeg">
 </audio>
 
-<div id="play">
-  <button onclick="start()">BUKA UNDANGAN ACARA</button>
-</div>
+<div class="container">
+  <div class="hero">
+    <h2>CYBER FUNK RAVE MAX</h2>
+    <p>Setiap Malam Minggu </p>
 
-<div class="hero">
-  <img src="cover1.jpg">
-  <div class="hero-text">
-    <h1>Kaka Music Studio</h1>
+    <div class="gallery">
+      <img src="foto1.jpg" class="active glitch">
+      <img src="foto2.jpg" class="glitch">
+      <img src="foto3.jpg" class="glitch">
+      <img src="foto4.jpg" class="glitch">
+    </div>
+
+    <a class="btn-live" href="https://www.tiktok.com/@pocistudio/live" target="_blank">🔴 GAS KE LIVE TIKTOK</a>
+    <a class="btn-dana" href="https://link.dana.id/089508492270" target="_blank">💸 SUPPORT DANA</a>
   </div>
-</div>
 
-<div class="section">
-  <div class="gallery">
-    <video autoplay muted loop controls>
-      <source src="cover2 vid.mp4" type="video/mp4">
-    </video>
-    <img src="cover3.jpg">
-    <img src="cover4.jpg">
-    <img src="cover5.jpg">
-  </div>
+  <footer>© 2026 Kaka Studio Music</footer>
 </div>
-
-<div class="section buttons">
-  <a class="dana" href="https://link-dana-anda.com">DOMPET DIGITAL DANA</a>
-  <a class="maps" href="https://maps.app.goo.gl/wQCRencYniQixdnk9">Lokasi</a>
-  <a class="hadir" href="https://wa.me/6289655606009?text=Saya%20Hadir">Saya Hadir</a>
-</div>
-
-<footer>Poci-Music-Game-Kaka-Studio</footer>
 
 <script>
 const bgm=document.getElementById('bgm');
-const play=document.getElementById('play');
+let ctx, analyser, dataArray, source;
 
-function start(){
-  bgm.volume=.6;
+/* START LIVE */
+function startLive(){
+  document.getElementById('opening').style.display='none';
+  bgm.volume=.8;
+
+  if(!ctx){
+    ctx=new (window.AudioContext||window.webkitAudioContext)();
+    source=ctx.createMediaElementSource(bgm);
+    analyser=ctx.createAnalyser();
+    source.connect(analyser);
+    analyser.connect(ctx.destination);
+    analyser.fftSize=64;
+    dataArray=new Uint8Array(analyser.frequencyBinCount);
+    beatReact();
+  }
+
   bgm.play();
-  play.style.display='none';
-  audioReact();
 }
 
-function audioReact(){
-  const ctx=new (window.AudioContext||window.webkitAudioContext)();
-  const src=ctx.createMediaElementSource(bgm);
-  const an=ctx.createAnalyser();
-  src.connect(an);
-  an.connect(ctx.destination);
-  an.fftSize=256;
-  const data=new Uint8Array(an.frequencyBinCount);
+/* AUTO SLIDE FOTO + GLITCH */
+const slides=document.querySelectorAll('.gallery img');
+let i=0;
+document.addEventListener("DOMContentLoaded",()=>{
+  slides[0].classList.add('active');
+  setInterval(()=>{
+    slides[i].classList.remove('active');
+    i=(i+1)%slides.length;
+    slides[i].classList.add('active');
+  },3000);
+});
 
-  function anim(){
-    an.getByteFrequencyData(data);
-    const avg=data.reduce((a,b)=>a+b)/data.length;
-    const r=Math.random()*255|0;
-    const g=Math.random()*255|0;
-    const b=Math.random()*255|0;
+/* BEAT REACT + SCREEN SHAKE */
+function beatReact(){
+  requestAnimationFrame(beatReact);
+  analyser.getByteFrequencyData(dataArray);
+  let avg=0;
+  for(let v of dataArray) avg+=v;
+  avg/=dataArray.length;
 
-    document.getElementById('bgflash').style.background=
-      `rgba(${r},${g},${b},${Math.min(.7,avg/180)})`;
+  // foto scale + glow
+  slides.forEach(s=>{
+    s.style.transform=`scale(${1 + avg/800})`;
+    s.style.boxShadow=`0 0 ${avg/3}px #0ff`;
+  });
 
-    requestAnimationFrame(anim);
-  }
-  anim();
+  // tombol scale + glow
+  document.querySelectorAll('.btn-live').forEach(b=>{
+    b.style.transform=`scale(${1 + avg/1000})`;
+    b.style.boxShadow=`0 0 ${avg/2}px #0ff`;
+  });
+
+  // SCREEN SHAKE BODY
+  document.body.style.transform=`translate(${(avg/40-avg/80)}px, ${(avg/40-avg/80)}px)`;
 }
 </script>
 </body>
