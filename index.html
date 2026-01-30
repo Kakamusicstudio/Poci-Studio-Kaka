@@ -83,11 +83,16 @@ body::after{
 
 /* GALLERY FULL SCREEN */
 .gallery{
-  position:relative;width:100%;height:100vh;overflow:hidden;
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  z-index:0;
 }
 .gallery img{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  opacity:0;transition:opacity .3s ease, transform .3s ease, box-shadow .2s ease;
+  opacity:0;transition:opacity .5s ease, transform .5s ease, box-shadow .2s ease;
 }
 .gallery img.active{opacity:1;transform:scale(1.05);}
 .gallery img.glitch{
@@ -109,9 +114,10 @@ body::after{
 
 /* BUTTONS FULL SCREEN OVERLAY */
 .btn-live, .btn-dana{
-  position:absolute;
+  position:fixed;
   left:50%;
   transform:translateX(-50%);
+  z-index:999;
   border-radius:40px;
   font-weight:900;
   text-align:center;
@@ -120,20 +126,8 @@ body::after{
   padding:22px 50px;
   font-size:24px;
 }
-.btn-live{
-  bottom:80px;
-  background:linear-gradient(90deg,#ff00ff,#00ffff);
-}
-.btn-dana{
-  bottom:20px;
-  background:linear-gradient(90deg,#ff00ff,#ffea00);
-  box-shadow:0 0 30px #ff0;
-}
-
-/* FOOTER */
-footer{
-  display:none; /* biar full foto */
-}
+.btn-live{bottom:80px;background:linear-gradient(90deg,#ff00ff,#00ffff);}
+.btn-dana{bottom:20px;background:linear-gradient(90deg,#ff00ff,#ffea00);box-shadow:0 0 30px #ff0;}
 </style>
 </head>
 <body>
@@ -151,14 +145,17 @@ footer{
   <source src="lgu kpi kk.mp3" type="audio/mpeg">
 </audio>
 
+<!-- GALLERY FULL SCREEN -->
 <div class="gallery">
   <img src="foto1.jpg" class="active glitch">
   <img src="foto2.jpg" class="glitch">
   <img src="foto3.jpg" class="glitch">
   <img src="foto4.jpg" class="glitch">
-  <a class="btn-live" href="https://www.tiktok.com/@pocistudio/live" target="_blank">🔴 GAS KE LIVE TIKTOK</a>
-  <a class="btn-dana" href="https://link.dana.id/089508492270" target="_blank">💸 SUPPORT DANA</a>
 </div>
+
+<!-- BUTTONS OVERLAY -->
+<a class="btn-live" href="https://www.tiktok.com/@pocistudio/live" target="_blank">🔴 LIVE</a>
+<a class="btn-dana" href="https://link.dana.id/089508492270" target="_blank">💸 DONASI</a>
 
 <script>
 const bgm=document.getElementById('bgm');
